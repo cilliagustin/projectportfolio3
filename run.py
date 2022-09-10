@@ -4,15 +4,15 @@ colorama.init()
 
 
 puzzle = [
-    [7,8,0,4,0,0,1,2,0],
-    [6,0,0,0,7,5,0,0,9],
-    [0,0,0,6,0,1,0,7,8],
-    [0,0,7,0,4,0,2,6,0],
-    [0,0,1,0,5,0,9,3,0],
-    [9,0,4,0,6,0,0,0,5],
-    [0,7,0,3,0,0,0,1,2],
-    [1,2,0,0,0,7,4,0,0],
-    [0,4,9,2,0,6,0,0,7]
+    [7, 8, 0, 4, 0, 0, 1, 2, 0],
+    [6, 0, 0, 0, 7, 5, 0, 0, 9],
+    [0, 0, 0, 6, 0, 1, 0, 7, 8],
+    [0, 0, 7, 0, 4, 0, 2, 6, 0],
+    [0, 0, 1, 0, 5, 0, 9, 3, 0],
+    [9, 0, 4, 0, 6, 0, 0, 0, 5],
+    [0, 7, 0, 3, 0, 0, 0, 1, 2],
+    [1, 2, 0, 0, 0, 7, 4, 0, 0],
+    [0, 4, 9, 2, 0, 6, 0, 0, 7]
 ]
 
 
@@ -105,12 +105,12 @@ def option_is_valid(puzzle, option, row, col):
         for c in range(first_col, first_col + 3):
             if puzzle[r][c] == option:
                 return False
-    
+
     # If number is not on row, col or square return True
     return True
 
 
-def solveSudoku(puzzle):
+def solve_sudoku(puzzle):
     """
     Gets a sudoku as parameter and returns the correct solution
     """
@@ -123,7 +123,7 @@ def solveSudoku(puzzle):
     """
     if row is None and col is None:
         return True
-    
+
     # Check all options to fill the unknown number (1 to 9)
     for option in range(1, 10):
         # Check if option could be a possible number
@@ -135,19 +135,20 @@ def solveSudoku(puzzle):
             Call again the function to check the next number over
             and over again
             """
-            if solveSudoku(puzzle):
+            if solve_sudoku(puzzle):
                 return True
-        
+
         """
         If there are no valid numbers reset the number (Re-establish as 0)
         and go to the prevoius number and loop to the next number. Eventually
         this will try all possible combinations until the sudoku is solved
         """
         puzzle[row][col] = 0
-    
-    # If no option is valid then the dusoku is unsolvable
+
+    # If no option is valid then the sudoku is unsolvable
     return False
 
 
-solveSudoku(puzzle)
-print(puzzle)
+style_board(puzzle)
+solve_sudoku(puzzle)
+style_board(puzzle)
