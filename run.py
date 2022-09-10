@@ -1,6 +1,7 @@
 # import colorama
 # from colorama import Fore
 # colorama.init()
+from text import *
 
 
 puzzle = [
@@ -14,6 +15,15 @@ puzzle = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
+
+
+def main_menu():
+    """
+    This is the main menu from here the user decides whether
+    they want to get information on the game or the app, if they
+    want to run the program or if they want to close the app
+    """
+    print(title)
 
 
 # def style_board(board):
