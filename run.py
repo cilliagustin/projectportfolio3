@@ -4,15 +4,15 @@ colorama.init()
 
 
 puzzle = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [7,8,0,4,0,0,1,2,0],
+    [6,0,0,0,7,5,0,0,9],
+    [0,0,0,6,0,1,0,7,8],
+    [0,0,7,0,4,0,2,6,0],
+    [0,0,1,0,5,0,9,3,0],
+    [9,0,4,0,6,0,0,0,5],
+    [0,7,0,3,0,0,0,1,2],
+    [1,2,0,0,0,7,4,0,0],
+    [0,4,9,2,0,6,0,0,7]
 ]
 
 
@@ -128,5 +128,26 @@ def solveSudoku(puzzle):
     for option in range(1, 10):
         # Check if option could be a possible number
         if option_is_valid(puzzle, option, row, col):
-            # Put option in unkown number
+            # Put option in unkown number and mutate list
             puzzle[row][col] = option
+
+            """
+            Call again the function to check the next number over
+            and over again
+            """
+            if solveSudoku(puzzle):
+                return True
+        
+        """
+        If there are no valid numbers reset the number (Re-establish as 0)
+        and go to the prevoius number and loop to the next number. Eventually
+        this will try all possible combinations until the sudoku is solved
+        """
+        puzzle[row][col] = 0
+    
+    # If no option is valid then the dusoku is unsolvable
+    return False
+
+
+solveSudoku(puzzle)
+print(puzzle)
