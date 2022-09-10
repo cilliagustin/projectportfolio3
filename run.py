@@ -56,8 +56,38 @@ def style_board(board):
             else:
                 # All other numbers are located here
                 print(currentVal + " ", end="")
-    #Last line to close the board
+    # Last line to close the board
     print(" - - - - - - - - - - - - - - - -")
+
+
+def find_unknown_number(puzzle):
+    """
+    Looks for next unknown number and returns that location,
+    loops through every row and then through each column in every row
+    """
+    for row in range(9):
+        for col in range(9):
+            if puzzle[row][col] == 0:
+                # Returns the location with a 0 value
+                return row, col
+
+    # Returns this when all spaces are compleated            
+    return None, None
+
+
+def solveSudoku(puzzle):
+    """
+    Gets a sudoku as parameter and returns the correct solution
+    """
+    # Find an empty space (first 0 element in puzzle)
+    row, col = find_unknown_number(puzzle)
+
+    """
+    If row and column = None, None there are no unknown numbers,
+    This means the puzzle is resolved, else keep going
+    """
+    if row is None and col is None:
+        return True
 
 
 style_board(puzzle)
