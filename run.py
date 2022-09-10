@@ -75,6 +75,41 @@ def find_unknown_number(puzzle):
     return None, None
 
 
+def option_is_valid(puzzle, option, row, col):
+    """
+    Check if a option is a valid option. Return True or False
+    The number must not be used on the same row, column or 3x3 square
+    """
+    # Check if number is in row
+    selected_row = puzzle[row]
+    if option in selected_row:
+        return False
+
+    # Check if number is in column
+    selected_column = []
+    for i in range(9):
+        selected_column.append(puzzle[i][col])
+    if option in selected_column:
+        return False
+
+    """
+    # Check in which 3x3 square is the number. Using the // operator
+    we get the result of the division ignoring the reminder. Multiplying
+    this by 3 we get the first number for the 3x3 square the number is located in
+    """
+    first_row = (row // 3) * 3
+    first_col = (col // 3) * 3
+
+    # Loop in 3x3 square and check if number is there
+    for r in range(first_row, first_row + 3):
+        for c in range(first_col, first_col + 3):
+            if puzzle[r][c] == option:
+                return False
+    
+    # If number is not on row, col or square return True
+    return True
+
+
 def solveSudoku(puzzle):
     """
     Gets a sudoku as parameter and returns the correct solution
@@ -88,6 +123,10 @@ def solveSudoku(puzzle):
     """
     if row is None and col is None:
         return True
-
-
-style_board(puzzle)
+    
+    # Check all options to fill the unknown number (1 to 9)
+    for option in range(1, 10):
+        # Check if option could be a possible number
+        if option_is_valid(puzzle, option, row, col):
+            # Put option in unkown number
+            puzzle[row][col] = option
