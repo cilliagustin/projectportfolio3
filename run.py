@@ -17,6 +17,22 @@ puzzle = [
 ]
 
 
+def exit_app():
+    """Whenever the user writes exit as an input it triggers 
+    this function. This displays another input that asks the
+    user if they are sure they want to exit and closes the app
+    if they confirm this"""
+    print("\n   Are you sure you want to close the app")
+    while True:
+        answer = input("\n      Type yes to close the App or no to keep using it: ").lower()
+        if answer == "yes":
+            quit()
+        elif answer == "no":
+            break
+        else:
+            print("   Wrong command, type yes to close the App or no to keep using it")
+
+
 def main_menu():
     """
     This is the main menu from here the user decides whether
@@ -26,15 +42,15 @@ def main_menu():
     print(TITLE)
     print(MAIN_MENU_TEXT)
     while True:
-        answer = input("Enter here your command: ").lower()
+        answer = input("\n      Enter here your command: ").lower()
         if answer == "exit":
-            print("exit")
+            exit_app()
         elif answer == "information":
             print("information")
         elif answer == "start":
             print("start")
         else:
-            print('wrong input, please enter a valid command:\nWrite "start" to run the App, "information" to get more information about the game and how to use the App or "exit" to close the aplication.')
+            print('   Wrong input, please enter a valid command:\nWrite "start" to run the App, "information" to get more information about the game and how to use the App or "exit" to close the aplication.')
 
 
 main_menu()
