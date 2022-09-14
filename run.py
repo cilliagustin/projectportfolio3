@@ -23,7 +23,22 @@ def main_menu():
     they want to get information on the game or the app, if they
     want to run the program or if they want to close the app
     """
-    print(title)
+    print(TITLE)
+    print(MAIN_MENU_TEXT)
+    while True:
+        answer = input("Enter here your command: ").lower()
+        if answer == "exit":
+            print("exit")
+        elif answer == "information":
+            print("information")
+        elif answer == "start":
+            print("start")
+        else:
+            print('wrong input, please enter a valid command:\nWrite "start" to run the App, "information" to get more information about the game and how to use the App or "exit" to close the aplication.')
+
+
+main_menu()
+
 
 
 # def style_board(board):
