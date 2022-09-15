@@ -1,6 +1,7 @@
-# import colorama
-# from colorama import Fore
-# colorama.init()
+import colorama
+from colorama import Fore
+colorama.init()
+import os  # To clear the console
 from text import *
 
 
@@ -39,6 +40,7 @@ def main_menu():
     they want to get information on the game or the app, if they
     want to run the program or if they want to close the app
     """
+    os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
     print(TITLE)
     print(MAIN_MENU_TEXT)
     while True:
@@ -46,15 +48,45 @@ def main_menu():
         if answer == "exit":
             exit_app()
         elif answer == "information":
-            print("information")
+            information_menu()
         elif answer == "start":
             print("start")
         else:
             print('   Wrong input, please enter a valid command:\nWrite "start" to run the App, "information" to get more information about the game and how to use the App or "exit" to close the aplication.')
 
 
-main_menu()
+def information_menu():
+    """
+    This is the menu where the user can see information on the
+    history and rules of the game and also learn how to use correctly
+    the App.
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
+    print(INFORMATION_TITLE)
+    print(INFORMATION_TEXT)
+    while True:
+        answer = input("\n      Enter here your command: ").lower()
+        if answer == "exit":
+            exit_app()
+        elif answer == "back":
+            main_menu()
+        elif answer == "game":
+            os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
+            print(INFORMATION_TEXT)
+            print(GAME_TITLE)
+            print(GAME_TEXT)
+        elif answer == "app":
+            os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
+            print(INFORMATION_TEXT)
+            print(APP_TITLE)
+            print(APP_TEXT)
+            print_example_board()
+            print(APP_TEXT2)
+        else:
+            print('   Wrong input, please enter a valid command:\nWrite "Game" for more information on the Puzzle, "App" for a tutorial on the App, write "Back" to go to the Main Menu or "Exit" to close the App.')
 
+
+main_menu()
 
 
 # def style_board(board):
