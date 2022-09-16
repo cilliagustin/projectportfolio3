@@ -1,8 +1,8 @@
+import os  # To clear the console
 import colorama
 from colorama import Fore
-colorama.init()
-import os  # To clear the console
 from text import *
+colorama.init()
 
 
 puzzle = [
@@ -22,25 +22,28 @@ def clear():
     """
     Clear terminal in windows or linux
     """
-    os.system('cls' if os.name == 'nt' else 'clear') 
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def exit_app():
     """
-    Whenever the user writes exit as an input it triggers 
+    Whenever the user writes exit as an input it triggers
     this function. This displays another input that asks the
     user if they are sure they want to exit and closes the app
     if they confirm this
     """
-    print("\n   Are you sure you want to close the app")
+    print("\n\tAre you sure you want to close the app")
     while True:
-        answer = input("\n      Type yes to close the App or no to keep using it: ").lower()
+        answer = input(
+            "\n\tType yes to close the App or no to keep using it: ").lower()
         if answer == "yes":
             quit()
         elif answer == "no":
             break
         else:
-            print("   Wrong command, type yes to close the App or no to keep using it")
+            print(
+                "\tWrong command, type yes to close the App "
+                "or no to keep using it")
 
 
 def main_menu():
@@ -53,7 +56,10 @@ def main_menu():
     print(TITLE)
     print(MAIN_MENU_TEXT)
     while True:
-        answer = input('Write "start" to run the App, "information" to get more information about the game and how to use the App or "exit" to close the aplication:\n       Write here your command: ').lower()
+        answer = input(
+            'Write "start" to run the App, "information" to get more '
+            'information about the game and how to use the App or "exit" to '
+            'close the aplication:\n\tWrite here your command: ').lower()
         if answer == "exit":
             exit_app()
         elif answer == "information":
@@ -61,7 +67,7 @@ def main_menu():
         elif answer == "start":
             start_app()
         else:
-            print('   Wrong input, please enter a valid command.')
+            print('\tWrong input, please enter a valid command.')
 
 
 def information_menu():
@@ -73,7 +79,10 @@ def information_menu():
     clear()
     print(INFORMATION_TEXT)
     while True:
-        answer = input('Write "Game" for more information on the Puzzle, "App" for a tutorial on the App, write "Back" to go to the Main Menu or "Exit" to close the App.\n      Enter your command: ').lower()
+        answer = input(
+            'Write "Game" for more information on the Puzzle, "App" for a '
+            'tutorial on the App, write "Back" to go to the Main Menu or '
+            '"Exit" to close the App.\n\tEnter your command: ').lower()
         if answer == "exit":
             exit_app()
         elif answer == "back":
@@ -86,10 +95,12 @@ def information_menu():
             clear()
             print(INFORMATION_TEXT)
             print(APP_TEXT)
+            input("Press enter to continue")
             style_board(EXAMPLE_BOARD)
+            input("Press enter to continue")
             print(APP_TEXT2)
         else:
-            print('   Wrong input, please enter a valid command.')
+            print('\tWrong input, please enter a valid command.')
 
 
 def start_app():
@@ -102,12 +113,16 @@ def start_app():
     print(START_APP_TEXT)
     style_board(puzzle)
     while True:
-        answer = input('Write your numbers to add to the puzzle, write "Solve" when you are done to get the solution, wite "Reset" to reset the puzzle, write "Back" to go to the main menu or "Exit to close the App: ').lower()
+        answer = input(
+            'Write your numbers to add to the puzzle, write "Solve" when you '
+            'are done to get the solution, wite "Reset" to reset the puzzle, '
+            'write "Back" to go to the main menu or "Exit to close the App: '
+            ).lower()
         try:
             if is_number_format_valid(answer):
                 print("correct numbers")
             else:
-                print('   Wrong input, please enter a valid command.')
+                print('\tWrong input, please enter a valid command.')
         except:
             if answer == "exit":
                 exit_app()
@@ -118,7 +133,7 @@ def start_app():
             elif answer == "solve":
                 print("solve")
             else:
-                print('   Wrong input, please enter a valid command.')   
+                print('\tWrong input, please enter a valid command.')
 
 
 def is_number_format_valid(answer):
@@ -127,7 +142,7 @@ def is_number_format_valid(answer):
     hyphen or space. the first two numbers are between 1 and 9 and the thirs
     one between 0 and 9
     """
-    if int(answer[0]) in range(1, 10) and int(answer[2]) in range(1, 10) and int(answer[4]) in range(10) and len(answer) == 5 and answer[1] == answer[3] and (answer[1] == "," or answer[1] == "-" or answer[1] == " "):
+    if int(answer[0]) in range(1, 10) and int(answer[2]) in range(1, 10) and int(answer[4]) in range(10) and len(answer) == 5 and answer[1] == answer[3] and (answer[1] == "," or answer[1] == "-" or answer[1] == " "):  # noqa
         return True
 
 
@@ -139,11 +154,13 @@ def style_board(board):
         if x == 0:
             """
             Create first lines to show the user each column,
-            the numbers here are printed in cyan to differentiate 
+            the numbers here are printed in cyan to differentiate
             from the numbers inside the board
             """
             print(" - - - - - - - - - - - - - - - -")
-            print(f" |{Fore.CYAN} 1 2 3  {Fore.WHITE}|{Fore.CYAN} 4 5 6  {Fore.WHITE}|{Fore.CYAN} 7 8 9 {Fore.WHITE}|   |")
+            print(
+                f" |{Fore.CYAN} 1 2 3  {Fore.WHITE}|{Fore.CYAN} 4 5 6  "
+                f"{Fore.WHITE}|{Fore.CYAN} 7 8 9 {Fore.WHITE}|   |")
             print(" - - - - - - - - - - - - - - - -")
         elif x % 3 == 0:
             # Add lines between rows to create a clear puzzle
@@ -164,10 +181,12 @@ def style_board(board):
             if y == 8:
                 """
                 Add the last number of each row and the guide numbers
-                The numbers are apllied with the color indicating if is a 
+                The numbers are apllied with the color indicating if is a
                 known or unknown number and the guide number is cyan.
                 """
-                print(currentVal + f"{Fore.WHITE} | {Fore.CYAN}{x + 1} {Fore.WHITE}|")
+                print(
+                    currentVal + f"{Fore.WHITE} | {Fore.CYAN}"
+                    f"{x + 1} {Fore.WHITE}|")
             else:
                 # All other numbers are located here
                 print(currentVal + " ", end="")
@@ -175,7 +194,7 @@ def style_board(board):
     print(" - - - - - - - - - - - - - - - -")
 
 
-start_app()
+main_menu()
 
 
 # def find_unknown_number(puzzle):
@@ -189,7 +208,7 @@ start_app()
 #                 # Returns the location with a 0 value
 #                 return row, col
 
-#     # Returns this when all spaces are compleated            
+#     # Returns this when all spaces are compleated
 #     return None, None
 
 
@@ -213,7 +232,7 @@ start_app()
 #     """
 #     # Check in which 3x3 square is the number. Using the // operator
 #     we get the result of the division ignoring the reminder. Multiplying
-#     this by 3 we get the first number for the 3x3 square the number is located in
+#     this by 3 we get the 1st num for the 3x3 square the number is located in
 #     """
 #     first_row = (row // 3) * 3
 #     first_col = (col // 3) * 3
@@ -270,4 +289,3 @@ start_app()
 # style_board(puzzle)
 # solve_sudoku(puzzle)
 # style_board(puzzle)
-
