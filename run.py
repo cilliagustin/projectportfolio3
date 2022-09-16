@@ -18,11 +18,20 @@ puzzle = [
 ]
 
 
+def clear():
+    """
+    Clear terminal in windows or linux
+    """
+    os.system('cls' if os.name == 'nt' else 'clear') 
+
+
 def exit_app():
-    """Whenever the user writes exit as an input it triggers 
+    """
+    Whenever the user writes exit as an input it triggers 
     this function. This displays another input that asks the
     user if they are sure they want to exit and closes the app
-    if they confirm this"""
+    if they confirm this
+    """
     print("\n   Are you sure you want to close the app")
     while True:
         answer = input("\n      Type yes to close the App or no to keep using it: ").lower()
@@ -40,7 +49,7 @@ def main_menu():
     they want to get information on the game or the app, if they
     want to run the program or if they want to close the app
     """
-    os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
+    clear()
     print(TITLE)
     print(MAIN_MENU_TEXT)
     while True:
@@ -50,7 +59,7 @@ def main_menu():
         elif answer == "information":
             information_menu()
         elif answer == "start":
-            print("start")
+            start_app()
         else:
             print('   Wrong input, please enter a valid command.')
 
@@ -61,7 +70,7 @@ def information_menu():
     history and rules of the game and also learn how to use correctly
     the App.
     """
-    os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
+    clear()
     print(INFORMATION_TEXT)
     while True:
         answer = input('Write "Game" for more information on the Puzzle, "App" for a tutorial on the App, write "Back" to go to the Main Menu or "Exit" to close the App.\n      Enter your command: ').lower()
@@ -70,17 +79,56 @@ def information_menu():
         elif answer == "back":
             main_menu()
         elif answer == "game":
-            os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
+            clear()
             print(INFORMATION_TEXT)
             print(GAME_TEXT)
         elif answer == "app":
-            os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
+            clear()
             print(INFORMATION_TEXT)
             print(APP_TEXT)
             style_board(EXAMPLE_BOARD)
             print(APP_TEXT2)
         else:
             print('   Wrong input, please enter a valid command.')
+
+
+def start_app():
+    """
+    Gets the given values from the user and then solves the sudoku using the
+    solve sudoku function.
+    """
+    clear()
+    print(TITLE)
+    print(START_APP_TEXT)
+    style_board(puzzle)
+    while True:
+        answer = input('Write your numbers to add to the puzzle, write "Solve" when you are done to get the solution, wite "Reset" to reset the puzzle, write "Back" to go to the main menu or "Exit to close the App: ').lower()
+        try:
+            if is_number_format_valid(answer):
+                print("correct numbers")
+            else:
+                print('   Wrong input, please enter a valid command.')
+        except:
+            if answer == "exit":
+                exit_app()
+            elif answer == "back":
+                main_menu()
+            elif answer == "reset":
+                print("reset")
+            elif answer == "solve":
+                print("solve")
+            else:
+                print('   Wrong input, please enter a valid command.')   
+
+
+def is_number_format_valid(answer):
+    """
+    Checks if the input has the correct format. 3 numbers divided by comma,
+    hyphen or space. the first two numbers are between 1 and 9 and the thirs
+    one between 0 and 9
+    """
+    if int(answer[0]) in range(1, 10) and int(answer[2]) in range(1, 10) and int(answer[4]) in range(10) and len(answer) == 5 and answer[1] == answer[3] and (answer[1] == "," or answer[1] == "-" or answer[1] == " "):
+        return True
 
 
 def style_board(board):
@@ -127,7 +175,7 @@ def style_board(board):
     print(" - - - - - - - - - - - - - - - -")
 
 
-main_menu()
+start_app()
 
 
 # def find_unknown_number(puzzle):
