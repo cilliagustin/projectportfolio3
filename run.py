@@ -44,7 +44,7 @@ def main_menu():
     print(TITLE)
     print(MAIN_MENU_TEXT)
     while True:
-        answer = input("\n      Enter here your command: ").lower()
+        answer = input('Write "start" to run the App, "information" to get more information about the game and how to use the App or "exit" to close the aplication:\n       Write here your command: ').lower()
         if answer == "exit":
             exit_app()
         elif answer == "information":
@@ -52,7 +52,7 @@ def main_menu():
         elif answer == "start":
             print("start")
         else:
-            print('   Wrong input, please enter a valid command:\nWrite "start" to run the App, "information" to get more information about the game and how to use the App or "exit" to close the aplication.')
+            print('   Wrong input, please enter a valid command.')
 
 
 def information_menu():
@@ -62,10 +62,9 @@ def information_menu():
     the App.
     """
     os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
-    print(INFORMATION_TITLE)
     print(INFORMATION_TEXT)
     while True:
-        answer = input("\n      Enter here your command: ").lower()
+        answer = input('Write "Game" for more information on the Puzzle, "App" for a tutorial on the App, write "Back" to go to the Main Menu or "Exit" to close the App.\n      Enter your command: ').lower()
         if answer == "exit":
             exit_app()
         elif answer == "back":
@@ -73,64 +72,62 @@ def information_menu():
         elif answer == "game":
             os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
             print(INFORMATION_TEXT)
-            print(GAME_TITLE)
             print(GAME_TEXT)
         elif answer == "app":
             os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal in windows or linux
             print(INFORMATION_TEXT)
-            print(APP_TITLE)
             print(APP_TEXT)
-            print_example_board()
+            style_board(EXAMPLE_BOARD)
             print(APP_TEXT2)
         else:
-            print('   Wrong input, please enter a valid command:\nWrite "Game" for more information on the Puzzle, "App" for a tutorial on the App, write "Back" to go to the Main Menu or "Exit" to close the App.')
+            print('   Wrong input, please enter a valid command.')
+
+
+def style_board(board):
+    """
+    Add style to the board to display correcly the sudoku
+    """
+    for x in range(len(board)):
+        if x == 0:
+            """
+            Create first lines to show the user each column,
+            the numbers here are printed in cyan to differentiate 
+            from the numbers inside the board
+            """
+            print(" - - - - - - - - - - - - - - - -")
+            print(f" |{Fore.CYAN} 1 2 3  {Fore.WHITE}|{Fore.CYAN} 4 5 6  {Fore.WHITE}|{Fore.CYAN} 7 8 9 {Fore.WHITE}|   |")
+            print(" - - - - - - - - - - - - - - - -")
+        elif x % 3 == 0:
+            # Add lines between rows to create a clear puzzle
+            print(" - - - - - - - - - - - - - - - -")
+        for y in range(len(board[0])):
+            """
+            Establish the colour of the number in the board,
+            red for 0 (uknown number), green for known numbers
+            """
+            currentVal = ""
+            if board[x][y] == 0:
+                currentVal = f"{Fore.RED}{str(board[x][y])}"
+            else:
+                currentVal = f"{Fore.GREEN}{str(board[x][y])}"
+            if y % 3 == 0:
+                # Divide with a "|" each 3 columns to create a clear puzzle
+                print(f"{Fore.WHITE} | ", end="")
+            if y == 8:
+                """
+                Add the last number of each row and the guide numbers
+                The numbers are apllied with the color indicating if is a 
+                known or unknown number and the guide number is cyan.
+                """
+                print(currentVal + f"{Fore.WHITE} | {Fore.CYAN}{x + 1} {Fore.WHITE}|")
+            else:
+                # All other numbers are located here
+                print(currentVal + " ", end="")
+    # Last line to close the board
+    print(" - - - - - - - - - - - - - - - -")
 
 
 main_menu()
-
-
-# def style_board(board):
-#     """
-#     Add style to the board to display correcly the sudoku
-#     """
-#     for x in range(len(board)):
-#         if x == 0:
-#             """
-#             Create first lines to show the user each column,
-#             the numbers here are printed in cyan to differentiate 
-#             from the numbers inside the board
-#             """
-#             print(" - - - - - - - - - - - - - - - -")
-#             print(f" |{Fore.CYAN} 1 2 3  {Fore.WHITE}|{Fore.CYAN} 4 5 6  {Fore.WHITE}|{Fore.CYAN} 7 8 9 {Fore.WHITE}|   |")
-#             print(" - - - - - - - - - - - - - - - -")
-#         elif x % 3 == 0:
-#             # Add lines between rows to create a clear puzzle
-#             print(" - - - - - - - - - - - - - - - -")
-#         for y in range(len(board[0])):
-#             """
-#             Establish the colour of the number in the board,
-#             red for 0 (uknown number), green for known numbers
-#             """
-#             currentVal = ""
-#             if board[x][y] == 0:
-#                 currentVal = f"{Fore.RED}{str(board[x][y])}"
-#             else:
-#                 currentVal = f"{Fore.GREEN}{str(board[x][y])}"
-#             if y % 3 == 0:
-#                 # Divide with a "|" each 3 columns to create a clear puzzle
-#                 print(f"{Fore.WHITE} | ", end="")
-#             if y == 8:
-#                 """
-#                 Add the last number of each row and the guide numbers
-#                 The numbers are apllied with the color indicating if is a 
-#                 known or unknown number and the guide number is cyan.
-#                 """
-#                 print(currentVal + f"{Fore.WHITE} | {Fore.CYAN}{x + 1} {Fore.WHITE}|")
-#             else:
-#                 # All other numbers are located here
-#                 print(currentVal + " ", end="")
-#     # Last line to close the board
-#     print(" - - - - - - - - - - - - - - - -")
 
 
 # def find_unknown_number(puzzle):
@@ -225,3 +222,4 @@ main_menu()
 # style_board(puzzle)
 # solve_sudoku(puzzle)
 # style_board(puzzle)
+
