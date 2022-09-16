@@ -112,3 +112,11 @@ third column an unknown number.
 You can also write "Reset" to delete all values on the puzzle, starting all
 over again.
 """
+
+START_APP_TEXT = """
+Write all your given numbers using one of the following paramethers:
+"2,9,4", "2-9-4" or "2 9 4". Remember the first number represents the row,
+the second the column and the third the given number. Remember the number 0
+represents an unknown number.
+Your puzzle so far: 
+"""
