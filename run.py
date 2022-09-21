@@ -35,15 +35,17 @@ def exit_app():
     print("\n\tAre you sure you want to close the app")
     while True:
         answer = input(
-            "\n\tType yes to close the App or no to keep using it: ").lower()
+            f"\n\tType {Fore.BLUE}yes {Fore.WHITE}to close the App or "
+            f"{Fore.BLUE}no {Fore.WHITE}to keep using it: ").lower()
         if answer == "yes":
             quit()
         elif answer == "no":
             break
         else:
             print(
-                "\tWrong command, type yes to close the App "
-                "or no to keep using it")
+                f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
+                f'{Fore.WHITE}. Type yes to close the App or no to keep using '
+                'it')
 
 
 def main_menu():
@@ -57,9 +59,10 @@ def main_menu():
     print(MAIN_MENU_TEXT)
     while True:
         answer = input(
-            'Write "start" to run the App, "information" to get more '
-            'information about the game and how to use the App or "exit" to '
-            'close the aplication:\n\tWrite here your command: ').lower()
+            f'Write {Fore.BLUE}start{Fore.WHITE} to run the App, '
+            f'{Fore.BLUE}information{Fore.WHITE} to get more information about'
+            f' the game and how to use the App or {Fore.BLUE}exit{Fore.WHITE} '
+            'to close the aplication:\n\tWrite here your command: ').lower()
         if answer == "exit":
             exit_app()
         elif answer == "information":
@@ -67,7 +70,9 @@ def main_menu():
         elif answer == "start":
             start_app()
         else:
-            print('\tWrong input, please enter a valid command.')
+            print(
+                f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
+                f'{Fore.WHITE}. Please enter a valid command.')
 
 
 def information_menu():
@@ -80,9 +85,11 @@ def information_menu():
     print(INFORMATION_TEXT)
     while True:
         answer = input(
-            'Write "Game" for more information on the Puzzle, "App" for a '
-            'tutorial on the App, write "Back" to go to the Main Menu or '
-            '"Exit" to close the App.\n\tEnter your command: ').lower()
+            f'Write {Fore.BLUE}game{Fore.WHITE} for more information on the '
+            f'Puzzle, {Fore.BLUE}app{Fore.WHITE} for a tutorial on the App, '
+            f'write {Fore.BLUE}back{Fore.WHITE} to go to the Main Menu or '
+            f'{Fore.BLUE}exit{Fore.WHITE} to close the App.\n\tEnter your '
+            'command: ').lower()
         if answer == "exit":
             exit_app()
         elif answer == "back":
@@ -95,12 +102,14 @@ def information_menu():
             clear()
             print(INFORMATION_TEXT)
             print(APP_TEXT)
-            input("Press enter to continue")
+            input(f"Press {Fore.BLUE}Enter{Fore.WHITE} to continue")
             style_board(EXAMPLE_BOARD)
-            input("Press enter to continue")
+            input(f"Press {Fore.BLUE}Enter{Fore.WHITE} to continue")
             print(APP_TEXT2)
         else:
-            print('\tWrong input, please enter a valid command.')
+            print(
+                f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
+                f'{Fore.WHITE}. Please enter a valid command.')
 
 
 def start_app():
@@ -114,15 +123,18 @@ def start_app():
     style_board(puzzle)
     while True:
         answer = input(
-            'Write your numbers to add to the puzzle, write "Solve" when you '
-            'are done to get the solution, wite "Reset" to reset the puzzle, '
-            'write "Back" to go to the main menu or "Exit to close the App: '
-            ).lower()
+            f'Write your {Fore.BLUE}numbers{Fore.WHITE} to add to the puzzle, '
+            f'write {Fore.BLUE}solve{Fore.WHITE} when you are done to get the '
+            f'solution, write {Fore.BLUE}reset{Fore.WHITE} to restart the '
+            f'puzzle, write {Fore.BLUE}back{Fore.WHITE} to go to the main menu'
+            f' or {Fore.BLUE}exit{Fore.WHITE} to close the App: ').lower()
         try:
             if is_number_format_valid(answer):
                 print("correct numbers")
             else:
-                print('\tWrong input, please enter a valid command.')
+                print(
+                    f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
+                    f'{Fore.WHITE}. Please enter a valid command.')
         except:
             if answer == "exit":
                 exit_app()
@@ -133,7 +145,9 @@ def start_app():
             elif answer == "solve":
                 print("solve")
             else:
-                print('\tWrong input, please enter a valid command.')
+                print(
+                    f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
+                    f'{Fore.WHITE}. Please enter a valid command.')
 
 
 def is_number_format_valid(answer):
