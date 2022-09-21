@@ -18,6 +18,12 @@ puzzle = [
 ]
 
 
+def wrong_input(answer):
+    print(
+        f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
+        f'{Fore.WHITE}. Please enter a valid command.')
+
+
 def clear():
     """
     Clear terminal in windows or linux
@@ -42,10 +48,7 @@ def exit_app():
         elif answer == "no":
             break
         else:
-            print(
-                f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
-                f'{Fore.WHITE}. Type yes to close the App or no to keep using '
-                'it')
+            wrong_input(answer)
 
 
 def main_menu():
@@ -70,9 +73,7 @@ def main_menu():
         elif answer == "start":
             start_app()
         else:
-            print(
-                f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
-                f'{Fore.WHITE}. Please enter a valid command.')
+            wrong_input(answer)
 
 
 def information_menu():
@@ -107,9 +108,7 @@ def information_menu():
             input(f"Press {Fore.BLUE}Enter{Fore.WHITE} to continue")
             print(APP_TEXT2)
         else:
-            print(
-                f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
-                f'{Fore.WHITE}. Please enter a valid command.')
+            wrong_input(answer)
 
 
 def start_app():
@@ -123,18 +122,17 @@ def start_app():
     style_board(puzzle)
     while True:
         answer = input(
-            f'Write your {Fore.BLUE}numbers{Fore.WHITE} to add to the puzzle, '
-            f'write {Fore.BLUE}solve{Fore.WHITE} when you are done to get the '
-            f'solution, write {Fore.BLUE}reset{Fore.WHITE} to restart the '
-            f'puzzle, write {Fore.BLUE}back{Fore.WHITE} to go to the main menu'
-            f' or {Fore.BLUE}exit{Fore.WHITE} to close the App: ').lower()
+            f'Write your {Fore.BLUE}numbers{Fore.WHITE} in a correct format to'
+            f' add them to the puzzle, write {Fore.BLUE}solve{Fore.WHITE} when'
+            f' you are done to get the solution, write {Fore.BLUE}reset'
+            f'{Fore.WHITE} to restart the puzzle, write {Fore.BLUE}back'
+            f'{Fore.WHITE} to go to the main menu or {Fore.BLUE}exit'
+            f'{Fore.WHITE} to close the App: ').lower()
         try:
             if is_number_format_valid(answer):
                 print("correct numbers")
             else:
-                print(
-                    f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
-                    f'{Fore.WHITE}. Please enter a valid command.')
+                wrong_input(answer)
         except:
             if answer == "exit":
                 exit_app()
@@ -145,9 +143,7 @@ def start_app():
             elif answer == "solve":
                 print("solve")
             else:
-                print(
-                    f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
-                    f'{Fore.WHITE}. Please enter a valid command.')
+                wrong_input(answer)
 
 
 def is_number_format_valid(answer):
