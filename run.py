@@ -102,6 +102,7 @@ def information_menu():
         elif answer == "app":
             clear()
             print(INFORMATION_TEXT)
+            print(APP_TITLE)
             print(APP_TEXT)
             input(f"Press {Fore.BLUE}Enter{Fore.WHITE} to continue")
             style_board(EXAMPLE_BOARD)
