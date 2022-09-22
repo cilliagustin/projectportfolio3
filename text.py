@@ -123,7 +123,7 @@ APP_TEXT2 = (
     'again.')
 
 START_APP_TEXT = (
-    'Write all your given numbers using one of the following paramethers: ba'
+    'Write all your given numbers using one of the following paramethers: '
     f'{Fore.BLUE}2,9,4{Fore.WHITE}, {Fore.BLUE}2-9-4{Fore.WHITE} or{Fore.BLUE}'
     f' 2 9 4{Fore.WHITE}. Remember the first number represents the {Fore.BLUE}'
     f'row {Fore.WHITE}, the second the {Fore.BLUE}column{Fore.WHITE} and the '
