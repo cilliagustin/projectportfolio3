@@ -117,10 +117,7 @@ def start_app():
     Gets the given values from the user and then solves the sudoku using the
     solve sudoku function.
     """
-    clear()
-    print(TITLE)
-    print(START_APP_TEXT)
-    style_board(puzzle)
+    run_app_screen()
     while True:
         answer = input(
             f'Write your {Fore.BLUE}numbers{Fore.WHITE} in a correct format to'
@@ -136,10 +133,7 @@ def start_app():
                 # updates puzzle with values
                 puzzle[row][col] = value
                 # Clear screen and display again all texts
-                clear()
-                print(TITLE)
-                print(START_APP_TEXT)
-                style_board(puzzle)
+                run_app_screen()
             else:
                 wrong_input(answer)
         except:
@@ -148,15 +142,21 @@ def start_app():
             elif answer == "back":
                 main_menu()
             elif answer == "reset":
+                # Reset puzzle
                 reset_puzzle(puzzle)
-                clear()
-                print(TITLE)
-                print(START_APP_TEXT)
-                style_board(puzzle)
+                # Clear screen and display again all texts
+                run_app_screen()
             elif answer == "solve":
                 print("solve")
             else:
                 wrong_input(answer)
+
+
+def run_app_screen():
+    clear()
+    print(TITLE)
+    print(START_APP_TEXT)
+    style_board(puzzle)
 
 
 def is_number_format_valid(answer):
