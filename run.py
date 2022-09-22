@@ -131,7 +131,15 @@ def start_app():
             f'{Fore.WHITE} to close the App: ').lower()
         try:
             if is_number_format_valid(answer):
-                print("correct numbers")
+                # get row col and value from answer
+                row, col, value = get_values(answer)
+                # updates puzzle with values
+                puzzle[row][col] = value
+                # Clear screen and display again all texts
+                clear()
+                print(TITLE)
+                print(START_APP_TEXT)
+                style_board(puzzle)
             else:
                 wrong_input(answer)
         except:
@@ -155,6 +163,21 @@ def is_number_format_valid(answer):
     """
     if int(answer[0]) in range(1, 10) and int(answer[2]) in range(1, 10) and int(answer[4]) in range(10) and len(answer) == 5 and answer[1] == answer[3] and (answer[1] == "," or answer[1] == "-" or answer[1] == " "):  # noqa
         return True
+
+
+def get_values(input):
+    """
+    Gets values from input (this will always be in possitions 0, 2, 4) and
+    returns them as intergers. Since the first two values are positions in
+    lists and this are 0 indexed the number is subtracted 1 to give an easier
+    understanding for the user (when the user enters 3 in the position value
+    this would equal to the fourth position, so 1 is subtracted so the value
+    equals to the third position)
+    """
+    a = int(input[0]) - 1
+    b = int(input[2]) - 1
+    c = int(input[4])
+    return a, b, c
 
 
 def style_board(board):
@@ -205,7 +228,7 @@ def style_board(board):
     print(" - - - - - - - - - - - - - - - -")
 
 
-main_menu()
+start_app()
 
 
 # def find_unknown_number(puzzle):
