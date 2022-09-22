@@ -148,7 +148,11 @@ def start_app():
             elif answer == "back":
                 main_menu()
             elif answer == "reset":
-                print("reset")
+                reset_puzzle(puzzle)
+                clear()
+                print(TITLE)
+                print(START_APP_TEXT)
+                style_board(puzzle)
             elif answer == "solve":
                 print("solve")
             else:
@@ -178,6 +182,15 @@ def get_values(input):
     b = int(input[2]) - 1
     c = int(input[4])
     return a, b, c
+
+
+def reset_puzzle(puzzle):
+    """
+    Turn all values back to zero (unknown numbers)
+    """
+    for row in range(9):
+        for col in range(9):
+            puzzle[row][col] = 0
 
 
 def style_board(board):
@@ -228,7 +241,7 @@ def style_board(board):
     print(" - - - - - - - - - - - - - - - -")
 
 
-start_app()
+main_menu()
 
 
 # def find_unknown_number(puzzle):
