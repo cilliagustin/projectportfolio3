@@ -6,15 +6,15 @@ colorama.init()
 
 
 puzzle = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [5, 0, 9, 0, 1, 0, 0, 8, 2],
+    [8, 3, 1, 0, 5, 0, 0, 0, 0],
+    [6, 0, 2, 9, 0, 0, 1, 0, 0],
+    [4, 1, 0, 3, 0, 8, 2, 9, 0],
+    [9, 2, 0, 5, 6, 1, 0, 0, 7],
+    [0, 0, 0, 4, 2, 0, 0, 0, 8],
+    [0, 8, 0, 0, 0, 6, 3, 0, 5],
+    [0, 0, 7, 0, 3, 0, 6, 0, 0],
+    [0, 9, 0, 0, 4, 5, 0, 0, 0]
 ]
 
 
@@ -147,7 +147,7 @@ def start_app():
                 # Clear screen and display again all texts
                 run_app_screen()
             elif answer == "solve":
-                print("solve")
+                solve_sudoku(puzzle)
             else:
                 wrong_input(answer)
 
@@ -191,6 +191,18 @@ def reset_puzzle(puzzle):
     for row in range(9):
         for col in range(9):
             puzzle[row][col] = 0
+
+
+def solve_sudoku(sudoku):
+    """
+    Makes a copy of the puzzle and uses the get answer function. if the sudoku
+    has a solution displays the solution
+    """
+    answer = sudoku
+    if get_answer(answer):
+        print("yes")
+    else:
+        print("no")
 
 
 def style_board(board):
@@ -241,98 +253,93 @@ def style_board(board):
     print(" - - - - - - - - - - - - - - - -")
 
 
-main_menu()
+def find_unknown_number(puzzle):
+    """
+    Looks for next unknown number and returns that location,
+    loops through every row and then through each column in every row
+    """
+    for row in range(9):
+        for col in range(9):
+            if puzzle[row][col] == 0:
+                # Returns the location with a 0 value
+                return row, col
+
+    # Returns this when all spaces are compleated
+    return None, None
 
 
-# def find_unknown_number(puzzle):
-#     """
-#     Looks for next unknown number and returns that location,
-#     loops through every row and then through each column in every row
-#     """
-#     for row in range(9):
-#         for col in range(9):
-#             if puzzle[row][col] == 0:
-#                 # Returns the location with a 0 value
-#                 return row, col
+def option_is_valid(puzzle, option, row, col):
+    """
+    Check if a option is a valid option. Return True or False
+    The number must not be used on the same row, column or 3x3 square
+    """
+    # Check if number is in row
+    selected_row = puzzle[row]
+    if option in selected_row:
+        return False
 
-#     # Returns this when all spaces are compleated
-#     return None, None
+    # Check if number is in column
+    selected_column = []
+    for i in range(9):
+        selected_column.append(puzzle[i][col])
+    if option in selected_column:
+        return False
 
+    """
+    # Check in which 3x3 square is the number. Using the // operator
+    we get the result of the division ignoring the reminder. Multiplying
+    this by 3 we get the 1st num for the 3x3 square the number is located in
+    """
+    first_row = (row // 3) * 3
+    first_col = (col // 3) * 3
 
-# def option_is_valid(puzzle, option, row, col):
-#     """
-#     Check if a option is a valid option. Return True or False
-#     The number must not be used on the same row, column or 3x3 square
-#     """
-#     # Check if number is in row
-#     selected_row = puzzle[row]
-#     if option in selected_row:
-#         return False
+    # Loop in 3x3 square and check if number is there
+    for r in range(first_row, first_row + 3):
+        for c in range(first_col, first_col + 3):
+            if puzzle[r][c] == option:
+                return False
 
-#     # Check if number is in column
-#     selected_column = []
-#     for i in range(9):
-#         selected_column.append(puzzle[i][col])
-#     if option in selected_column:
-#         return False
-
-#     """
-#     # Check in which 3x3 square is the number. Using the // operator
-#     we get the result of the division ignoring the reminder. Multiplying
-#     this by 3 we get the 1st num for the 3x3 square the number is located in
-#     """
-#     first_row = (row // 3) * 3
-#     first_col = (col // 3) * 3
-
-#     # Loop in 3x3 square and check if number is there
-#     for r in range(first_row, first_row + 3):
-#         for c in range(first_col, first_col + 3):
-#             if puzzle[r][c] == option:
-#                 return False
-
-#     # If number is not on row, col or square return True
-#     return True
+    # If number is not on row, col or square return True
+    return True
 
 
-# def solve_sudoku(puzzle):
-#     """
-#     Gets a sudoku as parameter and returns the correct solution
-#     """
-#     # Find an empty space (first 0 element in puzzle)
-#     row, col = find_unknown_number(puzzle)
+def get_answer(puzzle):
+    """
+    Gets a sudoku as parameter and returns the correct solution
+    """
+    # Find an empty space (first 0 element in puzzle)
+    row, col = find_unknown_number(puzzle)
 
-#     """
-#     If row and column = None, None there are no unknown numbers,
-#     This means the puzzle is resolved, else keep going
-#     """
-#     if row is None and col is None:
-#         return True
+    """
+    If row and column = None, None there are no unknown numbers,
+    This means the puzzle is resolved, else keep going
+    """
+    if row is None and col is None:
+        return True
 
-#     # Check all options to fill the unknown number (1 to 9)
-#     for option in range(1, 10):
-#         # Check if option could be a possible number
-#         if option_is_valid(puzzle, option, row, col):
-#             # Put option in unkown number and mutate list
-#             puzzle[row][col] = option
+    # Check all options to fill the unknown number (1 to 9)
+    for option in range(1, 10):
+        # Check if option could be a possible number
+        if option_is_valid(puzzle, option, row, col):
+            # Put option in unkown number and mutate list
+            puzzle[row][col] = option
 
-#             """
-#             Call again the function to check the next number over
-#             and over again
-#             """
-#             if solve_sudoku(puzzle):
-#                 return True
+            """
+            Call again the function to check the next number over
+            and over again
+            """
+            if get_answer(puzzle):
+                return True
 
-#         """
-#         If there are no valid numbers reset the number (Re-establish as 0)
-#         and go to the prevoius number and loop to the next number. Eventually
-#         this will try all possible combinations until the sudoku is solved
-#         """
-#         puzzle[row][col] = 0
+        """
+        If there are no valid numbers reset the number (Re-establish as 0)
+        and go to the prevoius number and loop to the next number. Eventually
+        this will try all possible combinations until the sudoku is solved
+        """
+        puzzle[row][col] = 0
 
-#     # If no option is valid then the sudoku is unsolvable
-#     return False
+    # If no option is valid then the sudoku is unsolvable
+    return False
 
 
-# style_board(puzzle)
-# solve_sudoku(puzzle)
-# style_board(puzzle)
+start_app()
