@@ -1,4 +1,5 @@
 import os  # To clear the console
+import copy
 import colorama
 from colorama import Fore
 from text import *
@@ -6,15 +7,15 @@ colorama.init()
 
 
 puzzle = [
-    [5, 0, 9, 0, 1, 0, 0, 8, 2],
-    [8, 3, 1, 0, 5, 0, 0, 0, 0],
-    [6, 0, 2, 9, 0, 0, 1, 0, 0],
-    [4, 1, 0, 3, 0, 8, 2, 9, 0],
-    [9, 2, 0, 5, 6, 1, 0, 0, 7],
-    [0, 0, 0, 4, 2, 0, 0, 0, 8],
-    [0, 8, 0, 0, 0, 6, 3, 0, 5],
-    [0, 0, 7, 0, 3, 0, 6, 0, 0],
-    [0, 9, 0, 0, 4, 5, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
 
@@ -198,11 +199,35 @@ def solve_sudoku(sudoku):
     Makes a copy of the puzzle and uses the get answer function. if the sudoku
     has a solution displays the solution
     """
-    answer = sudoku
+    answer = copy.deepcopy(sudoku)
     if get_answer(answer):
-        print("yes")
+        # Clear the screen and display the answer
+        clear()
+        print(TITLE)
+        print(f"This is the Sudoku {Fore.BLUE}you{Fore.WHITE} provided:")
+        style_board(sudoku)
+        input(f"Press {Fore.BLUE}Enter{Fore.WHITE} to continue")
+        print(f"This is the correct {Fore.BLUE}solution{Fore.WHITE}:")
+        style_board(answer)
+        input(
+            f"Press {Fore.BLUE}Enter{Fore.WHITE} to go back to the {Fore.BLUE}"
+            f"main menu{Fore.WHITE}")
+        # Reset the puzzle and go back to the main menu
+        reset_puzzle(puzzle)
+        main_menu()
+
     else:
-        print("no")
+        clear()
+        print(TITLE)
+        print(
+            "Oops, it seems that something went wrong...\nThere are no"
+            f"possible solutions for the Sudoku {Fore.BLUE}you{Fore.WHITE}"
+            " provided. Please check the values you entered and write "
+            f"{Fore.BLUE}solve{Fore.WHITE} again to get the answer.")
+        input(
+            f"Press {Fore.BLUE}Enter{Fore.WHITE} to go back to continue using"
+            " the App")
+        start_app()
 
 
 def style_board(board):
@@ -342,4 +367,4 @@ def get_answer(puzzle):
     return False
 
 
-start_app()
+main_menu()
