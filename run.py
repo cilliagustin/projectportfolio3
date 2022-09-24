@@ -7,15 +7,15 @@ colorama.init()
 
 
 puzzle = [
-    [0, 0, 8, 0, 0, 0, 9, 0, 0],
-    [3, 0, 0, 6, 0, 5, 0, 7, 0],
-    [7, 0, 1, 0, 8, 2, 0, 0, 0],
-    [0, 2, 5, 0, 0, 0, 1, 0, 0],
-    [0, 3, 7, 5, 1, 4, 0, 2, 8],
-    [0, 6, 4, 0, 3, 8, 5, 9, 7],
-    [0, 0, 0, 8, 0, 1, 3, 0, 9],
-    [5, 0, 0, 0, 6, 0, 0, 0, 0],
-    [0, 0, 3, 0, 0, 0, 0, 8, 6]
+    [1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
 
@@ -230,11 +230,20 @@ def solve_sudoku(sudoku):
 
 
 def is_puzzle_valid(sudoku):
+    """
+    Check if the given puzzle has an error (a repeated number) If the puzzle
+    has no errors tries to use the get answer function to solve the sudoku.
+    If everything goes ok returns true
+    """
+    # Checks all positions
     for row in range(9):
         for col in range(9):
+            # Check if is a given number (0 are unknown number)
             if sudoku[row][col] != 0:
                 current_number = sudoku[row][col]
+                # Check if the given sudoku has no repeated numbers
                 if option_is_valid(sudoku, current_number, row, col):
+                    # If there are no error check if the sudoku has an answer
                     if get_answer(sudoku):
                         return True
                 else:
