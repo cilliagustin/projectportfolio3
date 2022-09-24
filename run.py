@@ -7,15 +7,15 @@ colorama.init()
 
 
 puzzle = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 8, 0, 0, 0, 9, 0, 0],
+    [3, 0, 0, 6, 0, 5, 0, 7, 0],
+    [7, 0, 1, 0, 8, 2, 0, 0, 0],
+    [0, 2, 5, 0, 0, 0, 1, 0, 0],
+    [0, 3, 7, 5, 1, 4, 0, 2, 8],
+    [0, 6, 4, 0, 3, 8, 5, 9, 7],
+    [0, 0, 0, 8, 0, 1, 3, 0, 9],
+    [5, 0, 0, 0, 6, 0, 0, 0, 0],
+    [0, 0, 3, 0, 0, 0, 0, 8, 6]
 ]
 
 
@@ -200,7 +200,7 @@ def solve_sudoku(sudoku):
     has a solution displays the solution
     """
     answer = copy.deepcopy(sudoku)
-    if get_answer(answer):
+    if is_puzzle_valid(answer):
         # Clear the screen and display the answer
         clear()
         print(TITLE)
@@ -210,12 +210,11 @@ def solve_sudoku(sudoku):
         print(f"This is the correct {Fore.BLUE}solution{Fore.WHITE}:")
         style_board(answer)
         input(
-            f"Press {Fore.BLUE}Enter{Fore.WHITE} to go back to the {Fore.BLUE}"
-            f"main menu{Fore.WHITE}")
+            f"Press {Fore.BLUE}Enter{Fore.WHITE} to go back to the "
+            f"{Fore.BLUE}main menu{Fore.WHITE}")
         # Reset the puzzle and go back to the main menu
         reset_puzzle(puzzle)
         main_menu()
-
     else:
         clear()
         print(TITLE)
@@ -228,6 +227,18 @@ def solve_sudoku(sudoku):
             f"Press {Fore.BLUE}Enter{Fore.WHITE} to go back to continue using"
             " the App")
         start_app()
+
+
+def is_puzzle_valid(sudoku):
+    for row in range(9):
+        for col in range(9):
+            if sudoku[row][col] != 0:
+                current_number = sudoku[row][col]
+                if option_is_valid(sudoku, current_number, row, col):
+                    if get_answer(sudoku):
+                        return True
+                else:
+                    return False
 
 
 def style_board(board):
@@ -300,14 +311,14 @@ def option_is_valid(puzzle, option, row, col):
     """
     # Check if number is in row
     selected_row = puzzle[row]
-    if option in selected_row:
+    if option in selected_row and puzzle[row][col] != option:
         return False
 
     # Check if number is in column
     selected_column = []
     for i in range(9):
         selected_column.append(puzzle[i][col])
-    if option in selected_column:
+    if option in selected_column and puzzle[row][col] != option:
         return False
 
     """
@@ -321,7 +332,7 @@ def option_is_valid(puzzle, option, row, col):
     # Loop in 3x3 square and check if number is there
     for r in range(first_row, first_row + 3):
         for c in range(first_col, first_col + 3):
-            if puzzle[r][c] == option:
+            if puzzle[r][c] == option and puzzle[row][col] != option:
                 return False
 
     # If number is not on row, col or square return True
@@ -367,4 +378,4 @@ def get_answer(puzzle):
     return False
 
 
-main_menu()
+start_app()
