@@ -9,65 +9,19 @@ colorama.init()
 
 
 puzzle = [
-    [0, 0, 8, 0, 0, 0, 9, 0, 0],
-    [3, 0, 0, 6, 0, 5, 0, 7, 0],
-    [7, 0, 1, 0, 8, 2, 0, 0, 0],
-    [0, 2, 5, 0, 0, 0, 1, 0, 0],
-    [0, 3, 7, 5, 1, 4, 0, 2, 8],
-    [0, 6, 4, 0, 3, 8, 5, 9, 7],
-    [0, 0, 0, 8, 0, 1, 3, 0, 9],
-    [5, 0, 0, 0, 6, 0, 0, 0, 0],
-    [0, 0, 3, 0, 0, 0, 0, 8, 6]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
 
-def wrong_input(answer):
-    """
-    Indicates when the input given is not valid
-    """
-    print(
-        f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
-        f'{Fore.WHITE}. Please enter a valid command.')
-
-
-def clear():
-    """
-    Clear terminal in windows or linux
-    """
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-
-def typewriter(text):
-    """
-    Displays text on a typewriter style
-    """
-    for character in text:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(.1)
-    time.sleep(2)
-
-
-def exit_app():
-    """
-    Whenever the user writes exit as an input it triggers
-    this function. This displays another input that asks the
-    user if they are sure they want to exit and closes the app
-    if they confirm this
-    """
-    print("\n\tAre you sure you want to close the app")
-    while True:
-        answer = input(
-            f"\n\tType {Fore.BLUE}yes {Fore.WHITE}to close the App or "
-            f"{Fore.BLUE}no {Fore.WHITE}to keep using it: ").lower()
-        if answer == "yes":
-            quit()
-        elif answer == "no":
-            break
-        else:
-            wrong_input(answer)
-
-
+# Navigation menus
 def main_menu():
     """
     This is the main menu from here the user decides whether
@@ -169,7 +123,115 @@ def start_app():
                 wrong_input(answer)
 
 
+# Helper functions
+def clear():
+    """
+    Clear terminal in windows or linux
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def exit_app():
+    """
+    Whenever the user writes exit as an input it triggers
+    this function. This displays another input that asks the
+    user if they are sure they want to exit and closes the app
+    if they confirm this
+    """
+    print("\n\tAre you sure you want to close the app")
+    while True:
+        answer = input(
+            f"\n\tType {Fore.BLUE}yes {Fore.WHITE}to close the App or "
+            f"{Fore.BLUE}no {Fore.WHITE}to keep using it: ").lower()
+        if answer == "yes":
+            quit()
+        elif answer == "no":
+            break
+        else:
+            wrong_input(answer)
+
+
+def wrong_input(answer):
+    """
+    Indicates when the input given is not valid
+    """
+    print(
+        f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
+        f'{Fore.WHITE}. Please enter a valid command.')
+
+
+def reset_puzzle(puzzle):
+    """
+    Turn all values back to zero (unknown numbers)
+    """
+    for row in range(9):
+        for col in range(9):
+            puzzle[row][col] = 0
+
+
+def style_board(board):
+    """
+    Add style to the board to display correcly the sudoku
+    """
+    for x in range(len(board)):
+        if x == 0:
+            """
+            Create first lines to show the user each column,
+            the numbers here are printed in cyan to differentiate
+            from the numbers inside the board
+            """
+            print(" - - - - - - - - - - - - - - - -")
+            print(
+                f" |{Fore.CYAN} 1 2 3  {Fore.WHITE}|{Fore.CYAN} 4 5 6  "
+                f"{Fore.WHITE}|{Fore.CYAN} 7 8 9 {Fore.WHITE}|   |")
+            print(" - - - - - - - - - - - - - - - -")
+        elif x % 3 == 0:
+            # Add lines between rows to create a clear puzzle
+            print(" - - - - - - - - - - - - - - - -")
+        for y in range(len(board[0])):
+            """
+            Establish the colour of the number in the board,
+            red for 0 (uknown number), green for known numbers
+            """
+            currentVal = ""
+            if board[x][y] == 0:
+                currentVal = f"{Fore.RED}{str(board[x][y])}"
+            else:
+                currentVal = f"{Fore.GREEN}{str(board[x][y])}"
+            if y % 3 == 0:
+                # Divide with a "|" each 3 columns to create a clear puzzle
+                print(f"{Fore.WHITE} | ", end="")
+            if y == 8:
+                """
+                Add the last number of each row and the guide numbers
+                The numbers are apllied with the color indicating if is a
+                known or unknown number and the guide number is cyan.
+                """
+                print(
+                    currentVal + f"{Fore.WHITE} | {Fore.CYAN}"
+                    f"{x + 1} {Fore.WHITE}|")
+            else:
+                # All other numbers are located here
+                print(currentVal + " ", end="")
+    # Last line to close the board
+    print(" - - - - - - - - - - - - - - - -")
+
+
+def typewriter(text):
+    """
+    Displays text on a typewriter style
+    """
+    for character in text:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(.1)
+    time.sleep(2)
+
+
 def run_app_screen():
+    """
+    Clear screen and display text that are repeated on the run app function
+    """
     clear()
     print(TITLE)
     print(START_APP_TEXT)
@@ -201,19 +263,10 @@ def get_values(input):
     return a, b, c
 
 
-def reset_puzzle(puzzle):
-    """
-    Turn all values back to zero (unknown numbers)
-    """
-    for row in range(9):
-        for col in range(9):
-            puzzle[row][col] = 0
-
-
 def solve_sudoku(sudoku):
     """
-    Makes a copy of the puzzle and uses the get answer function. if the sudoku
-    has a solution displays the solution
+    Makes a copy of the puzzle and uses the get answer function. If the sudoku
+    has a solution it displays it
     """
     answer = copy.deepcopy(sudoku)
     clear()
@@ -308,54 +361,7 @@ def check_number_on_list(list, num):
     return counter
 
 
-def style_board(board):
-    """
-    Add style to the board to display correcly the sudoku
-    """
-    for x in range(len(board)):
-        if x == 0:
-            """
-            Create first lines to show the user each column,
-            the numbers here are printed in cyan to differentiate
-            from the numbers inside the board
-            """
-            print(" - - - - - - - - - - - - - - - -")
-            print(
-                f" |{Fore.CYAN} 1 2 3  {Fore.WHITE}|{Fore.CYAN} 4 5 6  "
-                f"{Fore.WHITE}|{Fore.CYAN} 7 8 9 {Fore.WHITE}|   |")
-            print(" - - - - - - - - - - - - - - - -")
-        elif x % 3 == 0:
-            # Add lines between rows to create a clear puzzle
-            print(" - - - - - - - - - - - - - - - -")
-        for y in range(len(board[0])):
-            """
-            Establish the colour of the number in the board,
-            red for 0 (uknown number), green for known numbers
-            """
-            currentVal = ""
-            if board[x][y] == 0:
-                currentVal = f"{Fore.RED}{str(board[x][y])}"
-            else:
-                currentVal = f"{Fore.GREEN}{str(board[x][y])}"
-            if y % 3 == 0:
-                # Divide with a "|" each 3 columns to create a clear puzzle
-                print(f"{Fore.WHITE} | ", end="")
-            if y == 8:
-                """
-                Add the last number of each row and the guide numbers
-                The numbers are apllied with the color indicating if is a
-                known or unknown number and the guide number is cyan.
-                """
-                print(
-                    currentVal + f"{Fore.WHITE} | {Fore.CYAN}"
-                    f"{x + 1} {Fore.WHITE}|")
-            else:
-                # All other numbers are located here
-                print(currentVal + " ", end="")
-    # Last line to close the board
-    print(" - - - - - - - - - - - - - - - -")
-
-
+# Sudoku solver algorithm
 def find_unknown_number(puzzle):
     """
     Looks for next unknown number and returns that location,
