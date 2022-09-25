@@ -9,15 +9,15 @@ colorama.init()
 
 
 puzzle = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 8, 0, 0, 0, 9, 0, 0],
+    [3, 0, 0, 6, 0, 5, 0, 7, 0],
+    [7, 0, 1, 0, 8, 2, 0, 0, 0],
+    [0, 2, 5, 0, 0, 0, 1, 0, 0],
+    [0, 3, 7, 5, 1, 4, 0, 2, 8],
+    [0, 6, 4, 0, 3, 8, 5, 9, 7],
+    [0, 0, 0, 8, 0, 1, 3, 0, 9],
+    [5, 0, 0, 0, 6, 0, 0, 0, 0],
+    [0, 0, 3, 0, 0, 0, 0, 8, 6]
 ]
 
 
@@ -259,12 +259,53 @@ def is_puzzle_valid(sudoku):
             if sudoku[row][col] != 0:
                 current_number = sudoku[row][col]
                 # Check if the given sudoku has no repeated numbers
-                if option_is_valid(sudoku, current_number, row, col):
+                if number_is_not_repeated(sudoku, current_number, row, col):
                     # If there are no error check if the sudoku has an answer
                     if get_answer(sudoku):
                         return True
                 else:
                     return False
+
+
+def number_is_not_repeated(sudoku, num, row, col):
+    """
+    Check if number provided is repeated on row, col or square.
+    If repeated returns False
+    """
+    # Check if number is repeted in row
+    selected_row = sudoku[row]
+    if check_number_on_list(selected_row, num) > 1:
+        return False
+
+    # Check if number is repeted in column
+    selected_column = []
+    for i in range(9):
+        selected_column.append(sudoku[i][col])
+    if check_number_on_list(selected_column, num) > 1:
+        return False
+
+    # Check if number is in 3x3 square
+    first_row = (row // 3) * 3
+    first_col = (col // 3) * 3
+    selected_square = []
+    for r in range(first_row, first_row + 3):
+        for c in range(first_col, first_col + 3):
+            selected_square.append(sudoku[r][c])
+    if check_number_on_list(selected_square, num) > 1:
+        return False
+    # If number is not repeted on row, col or square return True
+    return True
+
+
+def check_number_on_list(list, num):
+    """
+    Gets how many times a number exists in a list
+    """
+    counter = 0
+    for i in list:
+        if i == num:
+            counter += 1
+    return counter
 
 
 def style_board(board):
@@ -337,14 +378,14 @@ def option_is_valid(puzzle, option, row, col):
     """
     # Check if number is in row
     selected_row = puzzle[row]
-    if option in selected_row and puzzle[row][col] != option:
+    if option in selected_row:
         return False
 
     # Check if number is in column
     selected_column = []
     for i in range(9):
         selected_column.append(puzzle[i][col])
-    if option in selected_column and puzzle[row][col] != option:
+    if option in selected_column:
         return False
 
     """
@@ -358,7 +399,7 @@ def option_is_valid(puzzle, option, row, col):
     # Loop in 3x3 square and check if number is there
     for r in range(first_row, first_row + 3):
         for c in range(first_col, first_col + 3):
-            if puzzle[r][c] == option and puzzle[row][col] != option:
+            if puzzle[r][c] == option:
                 return False
 
     # If number is not on row, col or square return True
