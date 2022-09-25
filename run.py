@@ -1,4 +1,6 @@
 import os  # To clear the console
+import sys  # To print each individual character
+import time  # To give a delay when typing
 import copy
 import colorama
 from colorama import Fore
@@ -7,7 +9,7 @@ colorama.init()
 
 
 puzzle = [
-    [1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -20,6 +22,9 @@ puzzle = [
 
 
 def wrong_input(answer):
+    """
+    Indicates when the input given is not valid
+    """
     print(
         f'\t{Fore.RED}Wrong command: {Fore.YELLOW}"{answer}"'
         f'{Fore.WHITE}. Please enter a valid command.')
@@ -30,6 +35,17 @@ def clear():
     Clear terminal in windows or linux
     """
     os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def typewriter(text):
+    """
+    Displays text on a typewriter style
+    """
+    for character in text:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(.1)
+    time.sleep(2)
 
 
 def exit_app():
@@ -200,10 +216,13 @@ def solve_sudoku(sudoku):
     has a solution displays the solution
     """
     answer = copy.deepcopy(sudoku)
+    clear()
+    print(TITLE)
+    typewriter("Solving sudoku, please wait...\n")
+    input(f"Press {Fore.BLUE}Enter{Fore.WHITE} to continue")
     if is_puzzle_valid(answer):
         # Clear the screen and display the answer
         clear()
-        print(TITLE)
         print(f"This is the Sudoku {Fore.BLUE}you{Fore.WHITE} provided:")
         style_board(sudoku)
         input(f"Press {Fore.BLUE}Enter{Fore.WHITE} to continue")
@@ -216,15 +235,13 @@ def solve_sudoku(sudoku):
         reset_puzzle(puzzle)
         main_menu()
     else:
-        clear()
-        print(TITLE)
         print(
-            "Oops, it seems that something went wrong...\nThere are no"
+            "Oops, it seems that something went wrong...\nThere are no "
             f"possible solutions for the Sudoku {Fore.BLUE}you{Fore.WHITE}"
             " provided. Please check the values you entered and write "
             f"{Fore.BLUE}solve{Fore.WHITE} again to get the answer.")
         input(
-            f"Press {Fore.BLUE}Enter{Fore.WHITE} to go back to continue using"
+            f"Press {Fore.BLUE}Enter{Fore.WHITE} to go back and continue using"
             " the App")
         start_app()
 
