@@ -451,4 +451,4 @@ def get_answer(puzzle):
     return False
 
 
-start_app()
+main_menu()
