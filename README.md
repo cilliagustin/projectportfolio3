@@ -1,5 +1,14 @@
-# Title
-    Intro paragraph
+# Sudoku Solver
+The Sudoku Solver is an interactive application run through the Heroku terminal. Using this, the user is able to get the solution to any sudoku puzzle.
+
+Although Sudoku is a game mainly played by adults, anyone can run this program in order to get the solution or just check if they correctly completed the puzzle.
+
+The app can be intuitively run. From the main menu the user can either go to the information menu, here they will find out more about how to run the app and also about the history and rules of the sudoku. From the main menu they can also go to the screen where they can fill the puzzle with all the given numbers and get the solution.
+
+[Link to the live site](https://sudoku-solver-agustin-cilli.herokuapp.com/)
+    
+    Add image of main menu
+
 ## UX
     briefly explain your design
 ### User Stories
