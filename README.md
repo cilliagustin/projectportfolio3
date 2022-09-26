@@ -18,10 +18,19 @@ The app runs in the Heroku terminal and consists of three menus:
 Although running the app on a terminal has certain limitations regarding the user experience, colors (imported via colorama), titles created with ascii code, and effects were used to engage the user and catch their attention.
 ### User Stories
     bulletpoint any user stories you have... "As a user, I would like to __________", etc.
-### Colour Scheme
-    explain your colors, etc.... perhaps use coolors.co? to generate an image palette
-### Typography
-    explain any fonts and icon libraries used, like font-awesome and google fonts
+### Colour Scheme and Typography
+The colorama module was imported in order to be able to add colors to the app. These are used throughout the different parts of the website to enphasyse different things.
+In the information menu, the color blue was used throughout the "App explanation" to emphasize how the numbers must be formatted in order to be accepted as valid.
+When printing the puzzle with the style board function (more information about all functions will be given later on), the color red is used to express an unknown number in the puzzle (a zero), green is used for all the given (known) numbers, and cyan is used to show all the guide numbers on the top and the right side of the puzzle (used to orient the user to where the numbers should be entered).
+In the app, many inputs are printed where they ask the user to enter a specific command. In these cases, the blue color is often used to highlight which commands are valid.
+If the user enters an invalid command, the wrong input function will be triggered. This will display an error message using the colors red and yellow to indicate the invalid input.
+
+    Add color images
+
+The only customisation used for the typography in the app were the titles created with ascii code. The titles "Sudoku Solver", "Information", "The Game" and "The App" were created to attract the attention of the user when going through a specific part of the app.
+
+    Add title images
+
 ### Wireframes
      include screenshots of your wireframes (consider the markdown table format)
 ## Features
