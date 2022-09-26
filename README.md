@@ -10,7 +10,12 @@ The app can be intuitively run. From the main menu the user can either go to the
     Add image of main menu
 
 ## UX
-    briefly explain your design
+The app runs in the Heroku terminal and consists of three menus:
+* Main menu: The landing page and where the user can go to the other two menus.
+* Information menu: Here the user can either get more information on the game (history and rules of the sudoku) or get more information on the app (How to enter a puzzle and get the correct solution).
+* Solving menu: This is where the user enters the puzzle and gets the solution.
+
+Although running the app on a terminal has certain limitations regarding the user experience, colors (imported via colorama), titles created with ascii code, and effects were used to engage the user and catch their attention.
 ### User Stories
     bulletpoint any user stories you have... "As a user, I would like to __________", etc.
 ### Colour Scheme
