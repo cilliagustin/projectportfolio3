@@ -17,7 +17,17 @@ The app runs in the Heroku terminal and consists of three menus:
 
 Although running the app on a terminal has certain limitations regarding the user experience, colors (imported via colorama), titles created with ascii code, and effects were used to engage the user and catch their attention.
 ### User Stories
-    bulletpoint any user stories you have... "As a user, I would like to __________", etc.
+* As a user, I want to intuitively navigate through the application.
+* As a user, I want to understand the value the application gives me.
+* As a user, I want to be explained how to use the application.
+* As a user, I want to get information about the game Sudoku.
+* As a user, I want to be able to exit the application at any step.
+* As a user, I want to be able to correct the puzzle in case I made a miskate.
+* As a user, I want to be able to restart the whole puzzle if I made a lot of mistakes.
+* As a user, I want to be able to enter the sudoku using more than just one format.
+* As a user, I want to have the numbers I enter easily differentiated from the others.
+* As a user, I want to get the solution to the Sudoku puzzle.
+
 ### Colour Scheme and Typography
 The colorama module was imported in order to be able to add colors to the app. These are used throughout the different parts of the website to enphasyse different things.
 In the information menu, the color blue was used throughout the "App explanation" to emphasize how the numbers must be formatted in order to be accepted as valid.
