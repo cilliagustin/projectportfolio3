@@ -130,3 +130,15 @@ START_APP_TEXT = (
     f'third the {Fore.BLUE}given number{Fore.WHITE}.\nAlso remember the number'
     f'{Fore.BLUE} 0{Fore.WHITE} represents an unknown number.\n Your puzzle so'
     ' far:')
+
+VALID_FORMAT = (
+  f'\nRemember all your given values must be separated by either {Fore.BLUE}'
+  f'commas{Fore.WHITE}, {Fore.BLUE}hyphens{Fore.WHITE} or {Fore.BLUE}spaces'
+  f'{Fore.WHITE}.\nThe {Fore.BLUE}first{Fore.WHITE} number represents the '
+  f'{Fore.BLUE}row{Fore.WHITE}, the {Fore.BLUE}second{Fore.WHITE} the '
+  f'{Fore.BLUE}column{Fore.WHITE} and the {Fore.BLUE}third{Fore.WHITE} the '
+  f'{Fore.BLUE}value{Fore.WHITE} ({Fore.BLUE}zero{Fore.WHITE} being an '
+  f'{Fore.BLUE}unknown number{Fore.WHITE}) e.g.:\n{Fore.BLUE}4,8,2 4-8-2'
+  f'{Fore.WHITE} or {Fore.BLUE}4 8 2{Fore.WHITE} would be equal to add in the'
+  f' {Fore.BLUE}fourth row{Fore.WHITE} and{Fore.BLUE} eighth column'
+  f'{Fore.WHITE} a {Fore.BLUE}2{Fore.WHITE}.\n')
