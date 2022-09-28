@@ -41,8 +41,11 @@ The only customisation used for the typography in the app were the titles create
 
     Add title images
 
-### Wireframes
-     include screenshots of your wireframes (consider the markdown table format)
+### Structure
+The app runs with a easy to follow structure. Most of the big texts are stored in the text.py file and the run.py contains allk the functions used. There are Three "Menu functions" The main menu function, the information menu function and the start app functions. The first one works as a "Main screen" that lets you access the other two functions, the second one displays necesray information to the user and the thirs is the one where the user adds the information to get the anser to the sudoku.
+In any point of the app the user can exit the application by entering exit.
+
+    Add structure diagram
 ## Features
     briefly explain the project
 ### Existing Features
