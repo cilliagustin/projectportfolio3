@@ -92,11 +92,12 @@ def start_app():
     while True:
         answer = input(
             f'Write your {Fore.BLUE}numbers{Fore.WHITE} in a correct format to'
-            f' add them to the puzzle, write {Fore.BLUE}solve{Fore.WHITE} when'
-            f' you are done to get the solution, write {Fore.BLUE}reset'
-            f'{Fore.WHITE} to restart the puzzle, write {Fore.BLUE}back'
-            f'{Fore.WHITE} to go to the main menu or {Fore.BLUE}exit'
-            f'{Fore.WHITE} to close the App: ').lower()
+            f' add them to the puzzle.\nWrite {Fore.BLUE}format{Fore.WHITE} to'
+            f' display how to add the numbers correctly, write {Fore.BLUE}'
+            f'solve{Fore.WHITE} when you are done to get the solution, write '
+            f'{Fore.BLUE}reset{Fore.WHITE} to restart the puzzle, write '
+            f'{Fore.BLUE}back {Fore.WHITE} to go to the main menu or '
+            f'{Fore.BLUE}exit {Fore.WHITE} to close the App: ').lower()
         try:
             if is_number_format_valid(answer):
                 # get row col and value from answer
@@ -119,6 +120,8 @@ def start_app():
                 run_app_screen()
             elif answer == "solve":
                 solve_sudoku(puzzle)
+            elif answer == "format":
+                print(VALID_FORMAT)
             else:
                 wrong_input(answer)
 
