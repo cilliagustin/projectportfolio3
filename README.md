@@ -50,6 +50,15 @@ In any point of the app the user can exit the application by entering exit.
 This application has many features. A large number of these were implemented just to give the user a better experience while using a terminal-based application.
 
 ### Existing Features
+#### Modules
+Many modules had to be imported in order to add certain functionalities to the application.
+* Os: is used to create a function that clears the terminal. This checks if the operating system is either Windows or Linux and triggers the necessary command to delete everything visible in the terminal screen.
+* Sys: is used only in the typewriter function to print every character of the string individually.
+* Time: this is also used in the typewriter function to create a delay between each character and also a delay after the function prints the whole message.
+* Copy: in the solve sudoku function, a nested list has to be copied and modified without changing the original. In order to do this, this module had to be imported in order to be able to use deepcopy.
+* Colorama: this module is used throughout the whole application. Every single input uses this to indicate what the user can enter. In functions like style board, many colors are used to indicate what they do. The wrong input function uses this to show the invalid input entered and many of the text impoorttyed also uses this in certain words.
+
+
 #### Titles
 The application uses titles created in ASCII code in order to attract the attention of the user. The main title, "Sudoku Solver", is used in the main menu and when the user is entering the puzzle to be solved. The other titles are "Information", "The App", and "The Game", which are used in the information menu to indicate what information is being shown.
 These titles were created using the ASCII text generator provided by [coolgenerator](https://www.coolgenerator.com/ascii-text-generator) and stored as variables in the text.py file in order to be called in the different functions of the run.py file.
