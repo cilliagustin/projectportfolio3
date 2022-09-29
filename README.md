@@ -47,18 +47,21 @@ In any point of the app the user can exit the application by entering exit.
 
     Add structure diagram
 ## Features
-    briefly explain the project
+This application has many features. A large number of these were implemented just to give the user a better experience while using a terminal-based application.
+
 ### Existing Features
-    list out all of your project's features, and make sure to include a screenshot of each!!
+#### Titles
+The application uses titles created in ASCII code in order to attract the attention of the user. The main title, "Sudoku Solver", is used in the main menu and when the user is entering the puzzle to be solved. The other titles are "Information", "The App", and "The Game", which are used in the information menu to indicate what information is being shown.
+These titles were created using the ASCII text generator provided by [coolgenerator](https://www.coolgenerator.com/ascii-text-generator) and stored as variables in the text.py file in order to be called in the different functions of the run.py file.
+
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
 ## Technologies Used
     explain various tech used, such as HTML, CSS, Gitpod, GitHub, Git, etc. - add a link to each respective site as well, if possible
 ## Testing
-    "For all testing, please refer to the [TESTING.md](TESTING.md) file."
+For all testing, please refer to the [TESTING.md](TESTING.md) file.
 
 ## Deployment
-
 Code Institute has provided a [template](https://github.com/Code-Institute-Org/python-essentials-template) to display the terminal view of this backend application in a modern web browser. This is to improve the accessibility of the project to others.
 
 The live deployed application can be found [here](https://sudoku-solver-agustin-cilli.herokuapp.com/).
