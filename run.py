@@ -141,12 +141,14 @@ def exit_app():
     user if they are sure they want to exit and closes the app
     if they confirm this
     """
-    print("\n\tAre you sure you want to close the app")
+    print("\n\tAre you sure you want to close the app?")
     while True:
         answer = input(
-            f"\n\tType {Fore.BLUE}yes {Fore.WHITE}to close the App or "
+            f"\nType {Fore.BLUE}yes {Fore.WHITE}to close the App or "
             f"{Fore.BLUE}no {Fore.WHITE}to keep using it: ").lower()
         if answer == "yes":
+            typewriter("\nClosing app... See you soon!\n")
+            time.sleep(2)
             quit()
         elif answer == "no":
             break
