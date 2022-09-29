@@ -148,7 +148,6 @@ def exit_app():
             f"{Fore.BLUE}no {Fore.WHITE}to keep using it: ").lower()
         if answer == "yes":
             typewriter("\nClosing app... See you soon!\n")
-            time.sleep(2)
             quit()
         elif answer == "no":
             break
