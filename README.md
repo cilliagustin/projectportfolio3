@@ -54,6 +54,9 @@ This application has many features. A large number of these were implemented jus
 The application uses titles created in ASCII code in order to attract the attention of the user. The main title, "Sudoku Solver", is used in the main menu and when the user is entering the puzzle to be solved. The other titles are "Information", "The App", and "The Game", which are used in the information menu to indicate what information is being shown.
 These titles were created using the ASCII text generator provided by [coolgenerator](https://www.coolgenerator.com/ascii-text-generator) and stored as variables in the text.py file in order to be called in the different functions of the run.py file.
 
+#### Text.py
+The file [text.py](text.py) is where most of the texts are stored. This was created in order to have a better and easier to understand structure for the application. Many of the texts here are f-strings because the colorama module was also used here. This was used to emphasize certain words when explaining how to use the application: which command starts the app and how to correctly introduce the numbers.
+
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
 ## Technologies Used
