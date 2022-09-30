@@ -116,6 +116,11 @@ This function takes a puzzle as a parameter and prints it in a way that it repre
 
 Instead of representing the puzzle as a nested list, it will divide the rows and columns each 3  numbers to create a more understandable grid. It also prints some guide numbers (in cyan) so the user can see easily the row and column value for the number they have to enter and makes sure to print all zeroes in red and non-zero numbers in green so the user can easily differentiate between known and unknown numbers.
 
+#### Typewriter function
+This function takes a string as a parameter and prints it character by character so the user can read it as it is being written. This uses the modules "sys" and "time" to get each character at a time and prints them every 0.1 seconds. Once the message is printed, it has another delay of two seconds before continuing.
+
+The function is used when closing the application and when solving the sudoku.
+
 
 
 ### Features Left to Implement
