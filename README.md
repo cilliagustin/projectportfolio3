@@ -104,6 +104,11 @@ If they write "yes", a text (using the typewriter function) will inform the user
 #### Wrong input function
 This function is triggered whenever a user writes an invalid input. When this happens, this function will take that answer as a parameter and print: "Wrong command:" (in red using colorama), the wrong input (in yellow), and it will ask the user to enter a valid command.
 
+#### Reset puzzle function
+This function is activated not only when the user enters "rese"t on the start app function input, but also when the sudoku is solved (more on this later).
+
+This function loops through all the puzzle and replaces every single value with a zero.
+
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
 ## Technologies Used
