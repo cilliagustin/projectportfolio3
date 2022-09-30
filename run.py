@@ -108,7 +108,7 @@ def start_app():
                 # Clear screen and display again all texts
                 run_app_screen()
             else:
-                wrong_input(answer)
+                raise ValueError
         except ValueError:
             if answer == "exit":
                 exit_app()
@@ -264,25 +264,36 @@ def run_app_screen():
 def is_number_format_valid(answer):
     """
     Checks if the input has the correct format. 3 numbers divided by comma,
-    hyphen or space. the first two numbers are between 1 and 9 and the thirs
-    one between 0 and 9
+    hyphen or space or with no separations. The first two numbers are between
+    1 and 9 and the third one between 0 and 9
     """
-    if int(answer[0]) in range(1, 10) and int(answer[2]) in range(1, 10) and int(answer[4]) in range(10) and len(answer) == 5 and answer[1] == answer[3] and (answer[1] == "," or answer[1] == "-" or answer[1] == " "):  # noqa
-        return True
+    if len(answer) == 5:
+        if int(answer[0]) in range(1, 10) and int(answer[2]) in range(1, 10) and int(answer[4]) in range(10) and answer[1] == answer[3] and (answer[1] == "," or answer[1] == "-" or answer[1] == " "):  # noqa
+            return True
+    elif len(answer) == 3:
+        if int(answer[0]) in range(1, 10) and int(answer[1]) in range(1, 10) and int(answer[2]) in range(10):  # noqa
+            return True
 
 
 def get_values(input):
     """
-    Gets values from input (this will always be in possitions 0, 2, 4) and
-    returns them as intergers. Since the first two values are positions in
-    lists and this are 0 indexed the number is subtracted 1 to give an easier
-    understanding for the user (when the user enters 3 in the position value
-    this would equal to the fourth position, so 1 is subtracted so the value
-    equals to the third position)
+    Gets values from input (this will always be in possitions 0, 2, 4 if the
+    numbers are separated or they will be in positions 0, 1, 2 if the numbers
+    are not separated, and returns them as intergers.
+    Since the first two values are positions in lists and this are 0 indexed
+    the number is subtracted 1 to give an easier understanding for the user
+    (when the user enters 3 in the position value this would equal to the
+    fourth position, so 1 is subtracted so the value equals to the third
+    position)
     """
-    a = int(input[0]) - 1
-    b = int(input[2]) - 1
-    c = int(input[4])
+    if len(input) == 5:
+        a = int(input[0]) - 1
+        b = int(input[2]) - 1
+        c = int(input[4])
+    else:
+        a = int(input[0]) - 1
+        b = int(input[1]) - 1
+        c = int(input[2])
     return a, b, c
 
 
