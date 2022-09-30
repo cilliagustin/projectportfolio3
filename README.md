@@ -109,6 +109,13 @@ This function is activated not only when the user enters "rese"t on the start ap
 
 This function loops through all the puzzle and replaces every single value with a zero.
 
+#### Style board function
+This function takes a puzzle as a parameter and prints it in a way that it represents the puzzle in a more familiar way to the user.
+
+Instead of representing the puzzle as a nested list, it will divide the rows and columns each 3  numbers to create a more understandable grid. It also prints some guide numbers (in cyan) so the user can see easily the row and column value for the number they have to enter and makes sure to print all zeroes in red and non-zero numbers in green so the user can easily differentiate between known and unknown numbers.
+
+
+
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
 ## Technologies Used
