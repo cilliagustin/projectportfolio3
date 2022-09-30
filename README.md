@@ -68,12 +68,26 @@ The file [text.py](text.py) is where most of the texts are stored. This was crea
 
 #### Main menu function
 This function is the first triggered when the user opens the application. Since this is also triggered when going back from different sections of the application, the first thing to activate is the clear function (how this works will be explained later on). Once the screen is cleared, it prints the "Sudoku Solver" title and the "Main menu text", imported from the text.py file.
+
 After printing this text, it prints an input asking the user what they want to do. They can either write "information" to go to the information menu, "start" to go to the section where they can enter a puzzle and get the solution, or "exit" to trigger the exit app function.
+
 If the user enters an invalid input, it will trigger the wrong input function and ask again for an input.
+
 #### Information menu function
 When triggering this function, the first thing to do is clear the screen with the clear function. After that, it prints a text called "Information text" that contains the information title and a brief introductory text of what information the user can get here.
+
 Following that, an input asks the user to select the information they want to get. If the user enters "game," a text with all the information regarding the history of the sudoku and how to play the game will be printed. If they write "app", a description of how to use the app will be printed. Here, colorama is used to highlight certain parts of the text, and the style board function is triggered using an example puzzle located in the text.py file to print a sudoku in order to show the user how the numbers are entered.
+
 The user can also write back to send them back to the main menu or exit to trigger the exit app function.
+
+#### Start app function
+This function is triggered when the user enters "start" in the main menu function. The first thing to do is use a helper function called run app screen. After that, it prints an input where the user has a lot of options to enter. The first thing that happens with the input answer is a try/except block.
+
+In the try block, a function called is number format valid checks if the number entered is in a valid format. If that is the case, it will get the row col and value from the answer with the get values function and will place those values in the puzzle using the code "puzzle[row][col] = value". After that, the run app screen is triggered again.
+
+In the except block, it will validate the input answer if it is not a valid answer. If the input value is "reset", it will trigger the reset puzzle function that turns all the puzzle values into zeros. If the answer is "format", it will simply display a text explaining how to correctly format the numbers. If the input written is "solve", it will trigger the solve sudoku function that will try to get the correct answer (if there is one). Just like in the information menu function, if the input is "exit" the exit app function is triggered, and it will go back to the main menu if the input is "back" (this will maintain the entered values if the user goes back to the main menu and then writes "start" again).
+
+The wrong input function is triggered if the entered input is invalid.
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
