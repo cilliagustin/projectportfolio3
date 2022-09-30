@@ -96,6 +96,11 @@ The wrong input function is triggered if the entered input is invalid.
 #### Clear function
 The clear function is used thoughout the whole application to clear the screen. This uses the os imported module and checks if the operating system is Windows or Lynus and triggers the correct command.
 
+#### Exit app function
+This function can be triggered at any point in the application. In any input, the user can enter "exit" to activate this function. When this happens, it displays an inpout that asks the user to confirm they want to exit.
+
+If they write "yes", a text (using the typewriter function) will inform the user that the app is closing and then the app is closed. On the other hand, if the user enters "no," a break will be executed and the user will be taken back to the previous input they were.
+
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
 ## Technologies Used
