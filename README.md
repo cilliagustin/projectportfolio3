@@ -124,6 +124,9 @@ The function is used when closing the application and when solving the sudoku.
 #### Get salutation function
 This function is used when closing the application. Using the "datetime" module, it gets the hour that the user is using the app and returns a salutation according to the current hour.
 
+#### Run app screen function
+This function was created just to avoid repeating code because in the run app function there were two cases where the code cleared the screen and printed the same text (and the puzzle). To avoid code repetition, this function does exactly that.
+
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
