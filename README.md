@@ -66,6 +66,11 @@ These titles were created using the ASCII text generator provided by [coolgenera
 #### Text.py
 The file [text.py](text.py) is where most of the texts are stored. This was created in order to have a better and easier to understand structure for the application. Many of the texts here are f-strings because the colorama module was also used here. This was used to emphasize certain words when explaining how to use the application: which command starts the app and how to correctly introduce the numbers.
 
+#### Main menu function
+This function is the first triggered when the user opens the application. Since this is also triggered when going back from different sections of the application, the first thing to activate is the clear function (how this works will be explained later on). Once the screen is cleared, it prints the "Sudoku Solver" title and the "Main menu text", imported from the text.py file.
+After printing this text, it prints an input asking the user what they want to do. They can either write "information" to go to the information menu, "start" to go to the section where they can enter a puzzle and get the solution, or "exit" to trigger the exit app function.
+If the user enters an invalid input, it will trigger the wrong input function and ask again for an input.
+
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
 ## Technologies Used
