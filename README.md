@@ -82,7 +82,7 @@ When triggering this function, the first thing to do is clear the screen with th
 
 Following that, an input asks the user to select the information they want to get. If the user enters "game," a text with all the information regarding the history of the sudoku and how to play the game will be printed. If they write "app", a description of how to use the app will be printed. Here, colorama is used to highlight certain parts of the text, and the style board function is triggered using an example puzzle located in the text.py file to print a sudoku in order to show the user how the numbers are entered.
 
-The user can also write back to send them back to the main menu or exit to trigger the exit app function.
+The user can also write back to send them back to the main menu or exit to trigger the exit app function. The wrong input function is triggered if the entered input is invalid.
 
 #### Start app function
 This function is triggered when the user enters "start" in the main menu function. The first thing to do is use a helper function called run app screen. After that, it prints an input where the user has a lot of options to enter. The first thing that happens with the input answer is a try/except block.
@@ -100,6 +100,9 @@ The clear function is used thoughout the whole application to clear the screen. 
 This function can be triggered at any point in the application. In any input, the user can enter "exit" to activate this function. When this happens, it displays an inpout that asks the user to confirm they want to exit.
 
 If they write "yes", a text (using the typewriter function) will inform the user that the app is closing and then the app is closed. On the other hand, if the user enters "no," a break will be executed and the user will be taken back to the previous input they were.
+
+#### Wrong input function
+This function is triggered whenever a user writes an invalid input. When this happens, this function will take that answer as a parameter and print: "Wrong command:" (in red using colorama), the wrong input (in yellow), and it will ask the user to enter a valid command.
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
