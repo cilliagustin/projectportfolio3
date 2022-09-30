@@ -63,7 +63,6 @@ A nested list represents the sudoku board. This list contains 9 lists each with 
 
 This list is modified by the user entering the values they know of the sudoku. The original values, zeroes, represent an unknown number and this will be replaced by the values that the user already have.
 
-
 #### Titles
 The application uses titles created in ASCII code in order to attract the attention of the user. The main title, "Sudoku Solver", is used in the main menu and when the user is entering the puzzle to be solved. The other titles are "Information", "The App", and "The Game", which are used in the information menu to indicate what information is being shown.
 These titles were created using the ASCII text generator provided by [coolgenerator](https://www.coolgenerator.com/ascii-text-generator) and stored as variables in the text.py file in order to be called in the different functions of the run.py file.
@@ -93,6 +92,9 @@ In the try block, a function called is number format valid checks if the number 
 In the except block, it will validate the input answer if it is not a valid answer. If the input value is "reset", it will trigger the reset puzzle function that turns all the puzzle values into zeros. If the answer is "format", it will simply display a text explaining how to correctly format the numbers. If the input written is "solve", it will trigger the solve sudoku function that will try to get the correct answer (if there is one). Just like in the information menu function, if the input is "exit" the exit app function is triggered, and it will go back to the main menu if the input is "back" (this will maintain the entered values if the user goes back to the main menu and then writes "start" again).
 
 The wrong input function is triggered if the entered input is invalid.
+
+#### Clear function
+The clear function is used thoughout the whole application to clear the screen. This uses the os imported module and checks if the operating system is Windows or Lynus and triggers the correct command.
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
