@@ -99,7 +99,9 @@ The clear function is used thoughout the whole application to clear the screen. 
 #### Exit app function
 This function can be triggered at any point in the application. In any input, the user can enter "exit" to activate this function. When this happens, it displays an inpout that asks the user to confirm they want to exit.
 
-If they write "yes", a text (using the typewriter function) will inform the user that the app is closing and then the app is closed. On the other hand, if the user enters "no," a break will be executed and the user will be taken back to the previous input they were.
+If they write "yes", a text (using the typewriter function) will inform the user that the app is closing and then the app is closed. In this case, the get salutations function is triggered to salute the user according to the time of the day.
+
+On the other hand, if the user enters "no," a break will be executed and the user will be taken back to the previous input they were.
 
 #### Wrong input function
 This function is triggered whenever a user writes an invalid input. When this happens, this function will take that answer as a parameter and print: "Wrong command:" (in red using colorama), the wrong input (in yellow), and it will ask the user to enter a valid command.
