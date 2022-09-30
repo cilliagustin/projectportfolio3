@@ -109,7 +109,7 @@ def start_app():
                 run_app_screen()
             else:
                 wrong_input(answer)
-        except:
+        except ValueError:
             if answer == "exit":
                 exit_app()
             elif answer == "back":
