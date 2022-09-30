@@ -56,7 +56,12 @@ Many modules had to be imported in order to add certain functionalities to the a
 * Sys: is used only in the typewriter function to print every character of the string individually.
 * Time: this is also used in the typewriter function to create a delay between each character and also a delay after the function prints the whole message.
 * Copy: in the solve sudoku function, a nested list has to be copied and modified without changing the original. In order to do this, this module had to be imported in order to be able to use deepcopy.
-* Colorama: this module is used throughout the whole application. Every single input uses this to indicate what the user can enter. In functions like style board, many colors are used to indicate what they do. The wrong input function uses this to show the invalid input entered and many of the text impoorttyed also uses this in certain words.
+* Colorama: this module is used throughout the whole application. Every single input uses this to indicate what the user can enter. In functions like style board, many colors are used to indicate what they do. The wrong input function uses this to show the invalid input entered and many of the text impoorted also uses this in certain words.
+
+#### Puzzle
+A nested list represents the sudoku board. This list contains 9 lists each with 9 numbers, all zeroes when starting the app.
+
+This list is modified by the user entering the values they know of the sudoku. The original values, zeroes, represent an unknown number and this will be replaced by the values that the user already have.
 
 
 #### Titles
