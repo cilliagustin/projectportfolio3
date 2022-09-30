@@ -121,6 +121,8 @@ This function takes a string as a parameter and prints it character by character
 
 The function is used when closing the application and when solving the sudoku.
 
+#### Get salutation function
+This function is used when closing the application. Using the "datetime" module, it gets the hour that the user is using the app and returns a salutation according to the current hour.
 
 
 ### Features Left to Implement
