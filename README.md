@@ -150,7 +150,7 @@ If the puzzle is valid (it has a correct solution), it will first print the sudo
 
 If the validation returns "False" then it will display a message to the user that the entered puzzle does not have a valid answer and it will send the user back to the run app function so they can check the values entered.
 
-#### Is puzzle valud function
+#### Is puzzle valid function
 This function first loops through all the given numbers and checks if there are no repeated ones (two equal numbers in a row, column or 3x3 square) This is done using the number is not repeated function. If this validation returns "True", then it will go through another validation in the get answer function. If this validation is also "True", then the solve sudoku function will print the answer.
 
 #### Number is not repeated function
@@ -176,6 +176,13 @@ This function uses two helper functions called find unknown number and option is
 
 The function will go back and forth between the numbers and try many combinations until it finds one. When this happens, the function will return "True". If that does not happen, it means that the puzzle does not have a solution and it will just return "False" triggering the solve sudoku function to display an error message.
 
+#### Find unknown number function
+This function loops though the puzzle and looks for next unknown number (a zero) and returns that location (row and column)
+
+#### Option is valid function
+Similarly to the number is not repeated function, this function will check if a number is in a specific row, column, or 3x3 square, but instead of checking if a number is repeated, it checks if the number even exists in those positions.
+
+If the number is not in the corresponding row, column or square, it will return "True" and the get answer function will enter that number into the puzzle.
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
