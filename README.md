@@ -143,6 +143,13 @@ If the length is 5, then it will create three variables from the characters in t
 
 In both cases, the first two variables have 1 subtracted from them because they will be used as positions in a list, and lists are 0 indexed. These variables are returned and the start app function uses them as the row, column and value that will be entered in the puzzle.
 
+#### Solve sudoku function
+This function starts when the user enters "solve" on the run app function input. The first thing that happens is that the function creates a deep copy of the puzzle (a nested list) in order to not modify the original puzzle. After clearing the screen, a validation using the is puzzle valid happens.
+
+If the puzzle is valid (it has a correct solution), it will first print the sudoku entered and then it will print the solved version (using the style board function). After that, it will reset the sudoku and send the user back to the main menu.
+
+If the validation returns "False" then it will display a message to the user that the entered puzzle does not have a valid answer and it will send the user back to the run app function so they can check the values entered.
+
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
