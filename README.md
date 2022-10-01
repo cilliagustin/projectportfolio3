@@ -127,6 +127,15 @@ This function is used when closing the application. Using the "datetime" module,
 #### Run app screen function
 This function was created just to avoid repeating code because in the run app function there were two cases where the code cleared the screen and printed the same text (and the puzzle). To avoid code repetition, this function does exactly that.
 
+#### Is number format valid function
+The way this function works is that it takes an input and checks if the input is a set of numbers formatted in an accepted way.
+
+The first if statement checks if the input has a length of 5 if the characters in the first, third, and fifth position are numbers (the first two between 1 and 9 and the last between 0 and 9) and if the characters in the second and fourth position are either hyphens, spaces, or commas, and if they are the same (an input first separated with a comma and then with a hyphen would not be accepted)
+
+The second if statement checks if the input has a length of 3 and checks if these characters are numbers (This also asks that the first two numbers are between 1 and 9 and the last one between 0 and 9)
+
+If any of these statements is correct, the function returns True.
+
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
