@@ -136,6 +136,13 @@ The second if statement checks if the input has a length of 3 and checks if thes
 
 If any of these statements is correct, the function returns True.
 
+#### Get values function
+Here the input validated by the "is number format valid" function is entered as a parameter. Here the input goes through an if statement that checks the input length.
+
+If the length is 5, then it will create three variables from the characters in the first, third, and fifth positions of the input and convert them into intergers. If the length is not 5, then it must be three (because the prevoius function would only validate inputs with a length of 5 or 3 characters. Then it takes the same way the numbers but from the first, second, and third positions.
+
+In both cases, the first two variables have 1 subtracted from them because they will be used as positions in a list, and lists are 0 indexed. These variables are returned and the start app function uses them as the row, column and value that will be entered in the puzzle.
+
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
