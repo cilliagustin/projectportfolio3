@@ -153,6 +153,19 @@ If the validation returns "False" then it will display a message to the user tha
 #### Is puzzle valud function
 This function first loops through all the given numbers and checks if there are no repeated ones (two equal numbers in a row, column or 3x3 square) This is done using the number is not repeated function. If this validation returns "True", then it will go through another validation in the get answer function. If this validation is also "True", then the solve sudoku function will print the answer.
 
+#### Number is not repeated function
+This function takes as parameters a puzzle, a row and column value, and a number. It then checks if there are any repeated values in the row, in the column, and in the 3x3 square.
+
+In order to check if there are repetitions in the row, it just loops through a list (the puzzle is a list of lists and each inner list represents a row). Using the check number on the list function, if the result is over 1, it will return false.
+
+To check the column, the function creates a list by looping through the puzzle and adding all the values that correspond to the selected column to that list. It then uses the check number on the list function to see if the result is over 1. If that is the case, the function returns "False".
+
+To check the 3x3 square, it gets the first value of the row and column of that square. To do that, it divides the row and column values by 3 using the "//" operator. Using that operator, we get the answer ignoring the remaining, and then by multiplying that value by 3, we get the first row and column position of that square. e.g., row 7 and col 2. (7//3 = 2. 2*3 = 6) (2//3 = 0. 0*3 = 0) In this case, the first values of the square would be row 6 and col would be 0 (these are positions in a list, so remember that lists are 0 indexed). Then it creates a list and it loops through the puzzle to add the square (it takes originally that first position of the square and adds the values three rows and columns after).
+
+With that list, the function checks that there are no repeated numbers using the check number on the list function. If the result of the function is over 1, it returns "False".
+
+If none of the validations return "False" then the function will return "True". This is the first validation that happens in the Sudoku solver function.
+
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
