@@ -166,6 +166,16 @@ With that list, the function checks that there are no repeated numbers using the
 
 If none of the validations return "False" then the function will return "True". This is the first validation that happens in the Sudoku solver function.
 
+#### Check number on list
+This function returns the ammount of times a number a value appears on a list.
+
+#### Get answer function
+This function does not only validate if a sudoku has a solution and returns "True or "false" accordingly, but also mutates said sudoku to a solved version.
+
+This function uses two helper functions called find unknown number and option is valid. This function will look for the first unknown number (a zero) and will try to get the first number from 1 to 9 that can be placed there. If it finds it, the function will recursively call itself and look for the next zero and try another number, and so on and so on. If the function finds an unknown number that cannot be replaced with a number from 1 to 9, it means that a previously entered number must be wrong, so it goes to that previously entered number and tries with the next possible number.
+
+The function will go back and forth between the numbers and try many combinations until it finds one. When this happens, the function will return "True". If that does not happen, it means that the puzzle does not have a solution and it will just return "False" triggering the solve sudoku function to display an error message.
+
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
