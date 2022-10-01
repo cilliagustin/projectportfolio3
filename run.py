@@ -97,8 +97,8 @@ def start_app():
             f' display how to add the numbers correctly, write {Fore.BLUE}'
             f'solve{Fore.WHITE} when you are done to get the solution, write '
             f'{Fore.BLUE}reset{Fore.WHITE} to restart the puzzle, write '
-            f'{Fore.BLUE}back {Fore.WHITE} to go to the main menu or '
-            f'{Fore.BLUE}exit {Fore.WHITE} to close the App: ').lower()
+            f'{Fore.BLUE}back {Fore.WHITE}to go to the main menu or '
+            f'{Fore.BLUE}exit {Fore.WHITE}to close the App: ').lower()
         try:
             if is_number_format_valid(answer):
                 # get row col and value from answer
