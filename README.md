@@ -150,6 +150,9 @@ If the puzzle is valid (it has a correct solution), it will first print the sudo
 
 If the validation returns "False" then it will display a message to the user that the entered puzzle does not have a valid answer and it will send the user back to the run app function so they can check the values entered.
 
+#### Is puzzle valud function
+This function first loops through all the given numbers and checks if there are no repeated ones (two equal numbers in a row, column or 3x3 square) This is done using the number is not repeated function. If this validation returns "True", then it will go through another validation in the get answer function. If this validation is also "True", then the solve sudoku function will print the answer.
+
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
