@@ -1,5 +1,5 @@
 # Sudoku Solver
-The Sudoku Solver is an interactive application run through the Heroku terminal. Using this, the user is able to get the solution to any sudoku puzzle.
+The Sudoku Solver is an interactive application run through the [Heroku](https://www.heroku.com) terminal. Using this, the user is able to get the solution to any sudoku puzzle.
 
 Although Sudoku is a game mainly played by adults, anyone can run this program in order to get the solution or just check if they correctly completed the puzzle.
 
@@ -10,12 +10,13 @@ The app can be intuitively run. From the main menu the user can either go to the
     Add image of main menu
 
 ## UX
-The app runs in the Heroku terminal and consists of three menus:
+The app runs in the [Heroku](https://www.heroku.com) terminal and consists of three menus:
 * Main menu: The landing page and where the user can go to the other two menus.
 * Information menu: Here the user can either get more information on the game (history and rules of the sudoku) or get more information on the app (How to enter a puzzle and get the correct solution).
 * Solving menu: This is where the user enters the puzzle and gets the solution.
 
-Although running the app on a terminal has certain limitations regarding the user experience, colors (imported via colorama), titles created with ascii code, and effects were used to engage the user and catch their attention.
+Although running the app on a terminal has certain limitations regarding the user experience, colors (imported via [colorama](https://pypi.org/project/colorama/)), titles created with ASCII code, and effects were used to engage the user and catch their attention.
+
 ### User Stories
 * As a user, I want to intuitively navigate through the application.
 * As a user, I want to understand the value the application gives me.
@@ -29,7 +30,7 @@ Although running the app on a terminal has certain limitations regarding the use
 * As a user, I want to get the solution to the Sudoku puzzle.
 
 ### Colour Scheme and Typography
-The colorama module was imported in order to be able to add colors to the app. These are used throughout the different parts of the website to enphasyse different things.
+The [colorama](https://pypi.org/project/colorama/) module was imported in order to be able to add colors to the app. These are used throughout the different parts of the website to enphasyse different things.
 In the information menu, the color blue was used throughout the "App explanation" to emphasize how the numbers must be formatted in order to be accepted as valid.
 When printing the puzzle with the style board function (more information about all functions will be given later on), the color red is used to express an unknown number in the puzzle (a zero), green is used for all the given (known) numbers, and cyan is used to show all the guide numbers on the top and the right side of the puzzle (used to orient the user to where the numbers should be entered).
 In the app, many inputs are printed where they ask the user to enter a specific command. In these cases, the blue color is often used to highlight which commands are valid.
@@ -52,11 +53,12 @@ This application has many features. A large number of these were implemented jus
 ### Existing Features
 #### Modules
 Many modules had to be imported in order to add certain functionalities to the application.
-* Os: is used to create a function that clears the terminal. This checks if the operating system is either Windows or Linux and triggers the necessary command to delete everything visible in the terminal screen.
-* Sys: is used only in the typewriter function to print every character of the string individually.
-* Time: this is also used in the typewriter function to create a delay between each character and also a delay after the function prints the whole message.
-* Copy: in the solve sudoku function, a nested list has to be copied and modified without changing the original. In order to do this, this module had to be imported in order to be able to use deepcopy.
-* Colorama: this module is used throughout the whole application. Every single input uses this to indicate what the user can enter. In functions like style board, many colors are used to indicate what they do. The wrong input function uses this to show the invalid input entered and many of the text impoorted also uses this in certain words.
+* [Os](https://docs.python.org/3/library/os.html): is used to create a function that clears the terminal. This checks if the operating system is either [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) or [Linux](https://en.wikipedia.org/wiki/Linux) and triggers the necessary command to delete everything visible in the terminal screen.
+* [Sys](https://docs.python.org/3/library/sys.html): is used only in the [typewriter function](#typewriter-function) to print every character of the string individually.
+* [Time](https://docs.python.org/3/library/time.html?highlight=time#module-time): this is also used in the [typewriter function](#typewriter-function) to create a delay between each character and also a delay after the function prints the whole message.
+* [Copy](https://docs.python.org/3/library/copy.html?highlight=copy#module-copy): in the solve sudoku function, a nested list has to be copied and modified without changing the original. In order to do this, this module had to be imported in order to be able to use deepcopy.
+* [Colorama](https://pypi.org/project/colorama/): this module is used throughout the whole application. Every single input uses this to indicate what the user can enter. In functions like style board, many colors are used to indicate what they do. The wrong input function uses this to show the invalid input entered and many of the text impoorted also uses this in certain words.
+* [Datetime](https://docs.python.org/3/library/datetime.html?highlight=datetime#module-datetime): used to get the hour. Used in the get salutations function to give the user an accurate salutation when closing the app
 
 #### Puzzle
 A nested list represents the sudoku board. This list contains 9 lists each with 9 numbers, all zeroes when starting the app.
@@ -68,7 +70,7 @@ The application uses titles created in ASCII code in order to attract the attent
 These titles were created using the ASCII text generator provided by [coolgenerator](https://www.coolgenerator.com/ascii-text-generator) and stored as variables in the text.py file in order to be called in the different functions of the run.py file.
 
 #### Text.py
-The file [text.py](text.py) is where most of the texts are stored. This was created in order to have a better and easier to understand structure for the application. Many of the texts here are f-strings because the colorama module was also used here. This was used to emphasize certain words when explaining how to use the application: which command starts the app and how to correctly introduce the numbers.
+The file [text.py](text.py) is where most of the texts are stored. This was created in order to have a better and easier to understand structure for the application. Many of the texts here are f-strings because the [colorama](https://pypi.org/project/colorama/) module was also used here. This was used to emphasize certain words when explaining how to use the application: which command starts the app and how to correctly introduce the numbers.
 
 #### Main menu function
 This function is the first triggered when the user opens the application. Since this is also triggered when going back from different sections of the application, the first thing to activate is the clear function (how this works will be explained later on). Once the screen is cleared, it prints the "Sudoku Solver" title and the "Main menu text", imported from the text.py file.
@@ -80,7 +82,7 @@ If the user enters an invalid input, it will trigger the wrong input function an
 #### Information menu function
 When triggering this function, the first thing to do is clear the screen with the clear function. After that, it prints a text called "Information text" that contains the information title and a brief introductory text of what information the user can get here.
 
-Following that, an input asks the user to select the information they want to get. If the user enters "game," a text with all the information regarding the history of the sudoku and how to play the game will be printed. If they write "app", a description of how to use the app will be printed. Here, colorama is used to highlight certain parts of the text, and the style board function is triggered using an example puzzle located in the text.py file to print a sudoku in order to show the user how the numbers are entered.
+Following that, an input asks the user to select the information they want to get. If the user enters "game," a text with all the information regarding the history of the sudoku and how to play the game will be printed. If they write "app", a description of how to use the app will be printed. Here, [colorama](https://pypi.org/project/colorama/) is used to highlight certain parts of the text, and the style board function is triggered using an example puzzle located in the text.py file to print a sudoku in order to show the user how the numbers are entered.
 
 The user can also write back to send them back to the main menu or exit to trigger the exit app function. The wrong input function is triggered if the entered input is invalid.
 
@@ -94,7 +96,7 @@ In the except block, it will validate the input answer if it is not a valid answ
 The wrong input function is triggered if the entered input is invalid.
 
 #### Clear function
-The clear function is used thoughout the whole application to clear the screen. This uses the os imported module and checks if the operating system is Windows or Lynus and triggers the correct command.
+The clear function is used thoughout the whole application to clear the screen. This uses the os imported module and checks if the operating system is [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) or [Linus](https://en.wikipedia.org/wiki/Linux) and triggers the correct command.
 
 #### Exit app function
 This function can be triggered at any point in the application. In any input, the user can enter "exit" to activate this function. When this happens, it displays an inpout that asks the user to confirm they want to exit.
@@ -104,7 +106,7 @@ If they write "yes", a text (using the typewriter function) will inform the user
 On the other hand, if the user enters "no," a break will be executed and the user will be taken back to the previous input they were.
 
 #### Wrong input function
-This function is triggered whenever a user writes an invalid input. When this happens, this function will take that answer as a parameter and print: "Wrong command:" (in red using colorama), the wrong input (in yellow), and it will ask the user to enter a valid command.
+This function is triggered whenever a user writes an invalid input. When this happens, this function will take that answer as a parameter and print: "Wrong command:" (in red using [colorama](https://pypi.org/project/colorama/)), the wrong input (in yellow), and it will ask the user to enter a valid command.
 
 #### Reset puzzle function
 This function is activated not only when the user enters "rese"t on the start app function input, but also when the sudoku is solved (more on this later).
@@ -256,7 +258,7 @@ Here are the different souces and people that helped me to create this proyect.
 ### Content
 Here is a list of tutorials and blog entries that I used to learn how to implement certain functionalities into my code:
 * [How To Print Colored Text in Python (Colorama Tutorial)](https://www.youtube.com/watch?v=u51Zjlnui4Y&t=44s&ab_channel=TechWithTim)
-    * How to use colorama.
+    * How to use [colorama](https://pypi.org/project/colorama/).
 * [Clear terminal in Python [duplicate]](https://stackoverflow.com/questions/2084508/clear-terminal-in-python)
     * How to clear the python terminal.
 * [Python - Typewriter Style Animated Text Tutoria](https://www.youtube.com/watch?v=2h8e0tXHfk0&ab_channel=LearnLearnScratchTutorials)
