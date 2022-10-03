@@ -185,7 +185,8 @@ Similarly to the number is not repeated function, this function will check if a 
 If the number is not in the corresponding row, column or square, it will return "True" and the get answer function will enter that number into the puzzle.
 
 ### Features Left to Implement
-    have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
+A feature that could be interesting in the future is to be able to enter all coordenates in just one input. This would mean the user could just enter the values all together instead of entering them one by one, which is tedious and slow.
+
 ## Technologies Used
     explain various tech used, such as HTML, CSS, Gitpod, GitHub, Git, etc. - add a link to each respective site as well, if possible
 ## Testing
