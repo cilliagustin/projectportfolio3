@@ -188,7 +188,21 @@ If the number is not in the corresponding row, column or square, it will return 
 A feature that could be interesting in the future is to be able to enter all coordenates in just one input. This would mean the user could just enter the values all together instead of entering them one by one, which is tedious and slow.
 
 ## Technologies Used
-    explain various tech used, such as HTML, CSS, Gitpod, GitHub, Git, etc. - add a link to each respective site as well, if possible
+* [Python](https://www.python.org/)
+    * The programming language used to write this application.
+* [Heroku](https://www.heroku.com)
+    * The Cloud service used to host and run the application.
+* [Git](https://git-scm.com/)
+    * Used to deploy through the Gitpod terminal.
+* [GitHub](https://github.com/)
+    * Used the GitHub pages to deploy the website.
+* [Microsoft Paint](https://apps.microsoft.com/store/detail/paint/9PCFS5B6T72H?hl=en-us&gl=US)
+    * Used to edit the screenshots provided in the README and TESTING files.
+* [Coolgenerator](https://www.coolgenerator.com/ascii-text-generator)
+    * Used to create the "ASCII code titles"
+* [Draw.io](https://app.diagrams.net/)
+    * Used to create the flowchart shown in this file
+
 ## Testing
 For all testing, please refer to the [TESTING.md](TESTING.md) file.
 
