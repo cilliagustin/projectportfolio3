@@ -251,11 +251,23 @@ For Heroku deployment, follow these steps to connect your GitHub repository to t
 The frontend terminal should now be connected and deployed to Heroku.
 
 ## Credits
-    explain about any particular places you took inspiration from
+Here are the different souces and people that helped me to create this proyect.
+
 ### Content
-    list out any URLs or links where you might've borrowed a snippet of code, or element
-### Media
-    list out any URLs for images/videos/audios you've borrowed from online (Markdown Table works best here!)
+Here is a list of tutorials and blog entries that I used to learn how to implement certain functionalities into my code:
+* [How To Print Colored Text in Python (Colorama Tutorial)](https://www.youtube.com/watch?v=u51Zjlnui4Y&t=44s&ab_channel=TechWithTim)
+    * How to use colorama.
+* [Clear terminal in Python [duplicate]](https://stackoverflow.com/questions/2084508/clear-terminal-in-python)
+    * How to clear the python terminal.
+* [Python - Typewriter Style Animated Text Tutoria](https://www.youtube.com/watch?v=2h8e0tXHfk0&ab_channel=LearnLearnScratchTutorials)
+    * How to create a typewriter effect.
+* [How to Copy List of Lists in Python (Shallow vs Deep)?](https://blog.finxter.com/copy-list-of-lists-in-python-shallow-vs-deep/)
+    * How to use deepcopy to clone a nested list
+After deciding on this proyect, the first thing I did was looking for tutorials on how to implement recursion to create a sudoku solver application. This were the 2 videos that helped me understand the concept to create this application:
+* Python sudoku solver with backtracking [part 1](https://www.youtube.com/watch?v=eqUwSA0xI-s&ab_channel=TechWithTim) and [part 2](https://www.youtube.com/watch?v=lK4N8E6uNr4&t=144s&ab_channel=TechWithTim).
+* [Coding a Sudoku solver in Python using recursion/backtracking](https://www.youtube.com/watch?v=tvP_FZ-D9Ng&t=716s&ab_channel=KylieYing)
+
 ### Acknowledgements
-    list out any acknowledgements you have, if any... tutor support? fellow Slack student help? spouse, loved one, family member, etc.
+* My mentor, Tim, gave me a lot of great ideas that helped me improve this project and assisted me with many of my inquiries.
+* Ed, from the student support, gave me some very interesting ideas on how to implement my number validation function and explained to me why using a try/except block would be the most efficient.
 ​
