@@ -58,7 +58,6 @@ Many modules had to be imported in order to add certain functionalities to the a
 * [Time](https://docs.python.org/3/library/time.html?highlight=time#module-time): this is also used in the [typewriter function](#typewriter-function) to create a delay between each character and also a delay after the function prints the whole message.
 * [Copy](https://docs.python.org/3/library/copy.html?highlight=copy#module-copy): in the solve sudoku function, a nested list has to be copied and modified without changing the original. In order to do this, this module had to be imported in order to be able to use deepcopy.
 * [Colorama](https://pypi.org/project/colorama/): this module is used throughout the whole application. Every single input uses this to indicate what the user can enter. In functions like style board, many colors are used to indicate what they do. The wrong input function uses this to show the invalid input entered and many of the text impoorted also uses this in certain words.
-* [Datetime](https://docs.python.org/3/library/datetime.html?highlight=datetime#module-datetime): used to get the hour. Used in the get salutations function to give the user an accurate salutation when closing the app
 
 #### Puzzle
 A nested list represents the sudoku board. This list contains 9 lists each with 9 numbers, all zeroes when starting the app.
