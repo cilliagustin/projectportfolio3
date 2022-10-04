@@ -2,7 +2,13 @@
     "Click to return back to the [README.md](README.md)"
 
 ## Code Validation
-    you must showcase proof with screenshots that you've validated any code files, such as HTML, CSS, JS, Python (where applicable)
+The code was validated using the pycodestyle validator directly in the GItpod terminal. This does not throw any code errors.
+<details>
+<summary>View Validator</summary>
+
+![bug 1-1](documentation/validator.png)
+</details>
+
 ## Resolved Bugs
 During the creation of this application many bugs were found that affected the applications functionalities:
 * The first one was that after printing the function style board, this would print a message of "None" after the puzzle. This happened because the function style board already had a print function inside and using the function print on the style board would make the application not run as expected. After realizing this error, I switched to just calling the function style board to print the result.
