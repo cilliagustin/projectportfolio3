@@ -29,4 +29,4 @@ During the creation of this application many bugs were found that affected the a
 * When validating the puzzle, I realized that the sudoku solving algorithm would not check if the user entered a wrong number combination (It would still find an answer if the user entered 2 same numbers in a row, column, or 3x3 square). To solve this, I created a function that would check if a number was repeated and throw an error to the user if that was the case.
 
 ## Unfixed Bugs
-    list out any unfinished bugs you might have, where applicable... if none, don't just put "I have no bugs"... put something like: "There are no remaining bugs that I am aware of."
+The only unfixed bug that I am aware of happens only on the heroku terminal, not on the gitpod or other terminals. Because of the limitations of the provided terminal emulator, the application does not run the clear function properly, and this causes some chunks of previous code to still appear on top of the current code (although to see this the user would have to scroll up).
