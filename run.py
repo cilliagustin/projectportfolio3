@@ -323,10 +323,11 @@ def solve_sudoku(sudoku):
         main_menu()
     else:
         print(
-            "Oops, it seems that something went wrong...\nThere are no "
-            f"possible solutions for the Sudoku {Fore.BLUE}you{Fore.WHITE}"
-            " provided. Please check the values you entered and write "
-            f"{Fore.BLUE}solve{Fore.WHITE} again to get the answer.")
+            "Oops, it seems that something went wrong...\nThere are "
+            f"{Fore.RED}no possible solutions{Fore.WHITE} for the Sudoku "
+            F"{Fore.RED}you{Fore.WHITE} provided. Please check the values you "
+            F"entered and write {Fore.BLUE}solve{Fore.WHITE} again to get the "
+            "answer.")
         input(
             f"Press {Fore.BLUE}Enter{Fore.WHITE} to go back and continue using"
             " the App")
