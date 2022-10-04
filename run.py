@@ -2,7 +2,6 @@ import os  # To clear the console
 import sys  # To print each individual character
 import time  # To give a delay when typing
 import copy
-import datetime  # To get the hour to salute the user
 import colorama
 from colorama import Fore
 from text import *
@@ -142,14 +141,13 @@ def exit_app():
     user if they are sure they want to exit and closes the app
     if they confirm this
     """
-    salutation = get_salutation()
     print("\n\tAre you sure you want to close the app?")
     while True:
         answer = input(
             f"\nType {Fore.BLUE}yes {Fore.WHITE}to close the App or "
             f"{Fore.BLUE}no {Fore.WHITE}to keep using it: ").lower()
         if answer == "yes":
-            typewriter(f"\nClosing app... Have a {salutation}!\n")
+            typewriter(f"\nClosing app... See you soon!\n")
             quit()
         elif answer == "no":
             break
@@ -232,23 +230,6 @@ def typewriter(text):
         sys.stdout.flush()
         time.sleep(.1)
     time.sleep(2)
-
-
-def get_salutation():
-    """
-    Returns the current time of the day
-    """
-    currentTime = datetime.datetime.now()
-    salutation = ""
-    if 5 <= currentTime.hour < 13:
-        salutation = "nice day"
-    elif 13 <= currentTime.hour < 18:
-        salutation = "good afternoon"
-    elif 18 <= currentTime.hour < 21:
-        salutation = "lovely evening"
-    else:
-        salutation = "good night"
-    return salutation
 
 
 def run_app_screen():
