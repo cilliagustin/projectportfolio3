@@ -1,5 +1,5 @@
 # Testing
-    "Click to return back to the [README.md](README.md)"
+Click to return back to the [README.md](README.md)
 
 ## Code Validation
 The code was validated using the pycodestyle validator directly in the GItpod terminal. This does not throw any code errors.
