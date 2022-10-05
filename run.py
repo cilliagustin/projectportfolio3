@@ -35,8 +35,8 @@ def main_menu():
         answer = input(
             f'Write {Fore.BLUE}start{Fore.WHITE} to run the App, '
             f'{Fore.BLUE}information{Fore.WHITE} to get more information about'
-            f' the game and how to use the App or {Fore.BLUE}exit{Fore.WHITE} '
-            'to close the aplication:\n\tWrite here your command: ').lower()
+            f' the game\nand how to use the App or {Fore.BLUE}exit{Fore.WHITE}'
+            ' to close the aplication:\n\tWrite here your command: ').lower()
         if answer == "exit":
             exit_app()
         elif answer == "information":
@@ -58,8 +58,8 @@ def information_menu():
     while True:
         answer = input(
             f'Write {Fore.BLUE}game{Fore.WHITE} for more information on the '
-            f'Puzzle, {Fore.BLUE}app{Fore.WHITE} for a tutorial on the App, '
-            f'write {Fore.BLUE}back{Fore.WHITE} to go to the Main Menu or '
+            f'Puzzle, {Fore.BLUE}app{Fore.WHITE} for a tutorial on the App,'
+            f'\nwrite {Fore.BLUE}back{Fore.WHITE} to go to the Main Menu or '
             f'{Fore.BLUE}exit{Fore.WHITE} to close the App.\n\tEnter your '
             'command: ').lower()
         if answer == "exit":
@@ -94,9 +94,9 @@ def start_app():
             f'Write your {Fore.BLUE}numbers{Fore.WHITE} in a correct format to'
             f' add them to the puzzle.\nWrite {Fore.BLUE}format{Fore.WHITE} to'
             f' display how to add the numbers correctly, write {Fore.BLUE}'
-            f'solve{Fore.WHITE} when you are done to get the solution, write '
+            f'solve{Fore.WHITE} when you\nare done to get the solution, write '
             f'{Fore.BLUE}reset{Fore.WHITE} to restart the puzzle, write '
-            f'{Fore.BLUE}back {Fore.WHITE} to go to the main menu or '
+            f'{Fore.BLUE}back{Fore.WHITE} to\ngo to the main menu or '
             f'{Fore.BLUE}exit {Fore.WHITE} to close the App: ').lower()
         try:
             if is_number_format_valid(answer):
@@ -306,9 +306,9 @@ def solve_sudoku(sudoku):
         print(
             "Oops, it seems that something went wrong...\nThere are "
             f"{Fore.RED}no possible solutions{Fore.WHITE} for the Sudoku "
-            F"{Fore.RED}you{Fore.WHITE} provided. Please check the values you "
-            F"entered and write {Fore.BLUE}solve{Fore.WHITE} again to get the "
-            "answer.")
+            f"{Fore.RED}you{Fore.WHITE} provided. Please check the\nvalues you"
+            f" entered and write {Fore.BLUE}solve{Fore.WHITE} again to get the"
+            " answer.")
         input(
             f"Press {Fore.BLUE}Enter{Fore.WHITE} to go back and continue using"
             " the App")
