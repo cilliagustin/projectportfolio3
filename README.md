@@ -214,7 +214,7 @@ The live deployed application can be found [here](https://sudoku-solver-agustin-
 *Gitpod* IDE was used to write the code for this project.
 
 To make a local copy of this repository, you can clone the project by typing the follow into your IDE terminal:
-- `git clone https://github.com/cilliagustin/projectportfolio3.git`
+- `git clone https://github.com/cilliagustin/sudokusolver.git`
 
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
 
