@@ -9,6 +9,80 @@ The code was validated using the pycodestyle validator directly in the GItpod te
 ![bug 1-1](documentation/validator.png)
 </details>
 
+## User Stories
+* As a user, I want to intuitively navigate through the application.
+    * The app makes sure to always explain to the user what inputs can be entered.
+<details>
+<summary>View Screenshot</summary>
+
+![Intuitive navigation](documentation/screenshot-navigation.png)
+</details>
+
+* As a user, I want to be explained how to use the application.
+    * The app has a tutorial that explains what the user can do within the application.
+<details>
+<summary>View Screenshot</summary>
+
+![Tutorial](documentation/screenshot-tutorial.png)
+</details>
+
+* As a user, I want to get information about the game Sudoku.
+    * The app explains the history and rules of the game.
+<details>
+<summary>View Screenshot</summary>
+
+![History](documentation/screenshot-history.png)
+</details>
+
+* As a user, I want to be able to exit the application at any step.
+    * In any input, the user can enter "exit" to run the exit app function and close the app.
+<details>
+<summary>View Screenshot</summary>
+
+![exit app](documentation/screenshot-close-app.png)
+</details>
+
+* As a user, I want to be able to correct the puzzle in case I make a mistake.
+    * The user can override any entered number if they make a mistake by just entering a new "given value" or a zero for an "unknown number".
+<details>
+<summary>View Screenshot</summary>
+
+![Mistake](documentation/screenshot-mistake.png)
+</details>
+
+* As a user, I want to be able to restart the whole puzzle if I make a lot of mistakes.
+    * The user can enter "Reset" to delete all values from the puzzle.
+<details>
+<summary>View Screenshot</summary>
+
+![Reset](documentation/screenshot-reset.png)
+</details>
+
+* As a user, I want to be able to enter the sudoku values using more than just one format.
+    * The user can enter the puzzle in four different formats, so they can select what is easiest for them.
+<details>
+<summary>View Screenshot</summary>
+
+![Formats](documentation/screenshot-formats.png)
+</details>
+
+* As a user, I want to have the numbers I enter easily differentiated from the others.
+    * The style board function easily differentiates between given and unknown numbers.
+<details>
+<summary>View Screenshot</summary>
+
+![Styled board](documentation/screenshot-board-color.png)
+</details>
+
+* As a user, I want to get the solution to the Sudoku puzzle.
+    * If the puzzle provided has a solution, the application will print this into the terminal.
+<details>
+<summary>View Screenshot</summary>
+
+![Solved](documentation/screenshot-solved.png)
+</details>
+
+
 ## Resolved Bugs
 During the creation of this application many bugs were found that affected the applications functionalities:
 * The first one was that after printing the function style board, this would print a message of "None" after the puzzle. This happened because the function style board already had a print function inside and using the function print on the style board would make the application not run as expected. After realizing this error, I switched to just calling the function style board to print the result.
