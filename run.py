@@ -21,6 +21,13 @@ puzzle = [
 ]
 
 
+def clear():
+    """
+    Clear terminal in windows or linux
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 # Navigation menus
 def main_menu():
     """
@@ -127,11 +134,6 @@ def start_app():
 
 
 # Helper functions
-def clear():
-    """
-    Clear terminal in windows or linux
-    """
-    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def exit_app():
