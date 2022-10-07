@@ -2,7 +2,7 @@
 Click to return back to the [README.md](README.md)
 
 ## Code Validation
-The code was validated using the pycodestyle validator directly in the GItpod terminal. This does not throw any code errors.
+The code was validated using the pycodestyle validator directly in the Gitpod terminal. This does not throw any code errors.
 <details>
 <summary>View Validator</summary>
 
@@ -82,6 +82,32 @@ The code was validated using the pycodestyle validator directly in the GItpod te
 ![Solved](documentation/screenshot-solved.png)
 </details>
 
+## Input Validation
+There are only four inputs that require the user to enter a command. These were validated to make sure there were no incorrect commands that were accepted and caused an error. The function wrong input displays these invalid inputs to the user.
+Here are some screenshots of the inputs with incorrect commands to show how the application deals with these.
+<details>
+<summary>View main menu function input validation</summary>
+
+![Main menu function input validation](documentation/screenshot-input-validation-main-menu-function.png)
+</details>
+
+<details>
+<summary>View information menu function input validation</summary>
+
+![Information menu function input validation](documentation/screenshot-input-validation-information-menu-function.png)
+</details>
+
+<details>
+<summary>View start app function input validation</summary>
+
+![Start app function input validation](documentation/screenshot-input-validation-start-app-function.png)
+</details>
+
+<details>
+<summary>View exit app function input validation</summary>
+
+![Exit app function input validation](documentation/screenshot-input-validation-exit-app-function.png)
+</details>
 
 ## Resolved Bugs
 During the creation of this application many bugs were found that affected the applications functionalities:
