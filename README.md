@@ -18,7 +18,6 @@ Although running the app on a terminal has certain limitations regarding the use
 
 ### User Stories
 * As a user, I want to intuitively navigate through the application.
-* As a user, I want to understand the value the application gives me.
 * As a user, I want to be explained how to use the application.
 * As a user, I want to get information about the game Sudoku.
 * As a user, I want to be able to exit the application at any step.
