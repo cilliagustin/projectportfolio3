@@ -59,6 +59,9 @@ comes as an abbreviation of Suji wa dokushin ni kagiru (The digits must be
 single) and in the following years they polished the game: added a maximum
 of 32 of the given numbers and distributed them more evenly though the
 board.
+"""
+
+GAME_TEXT_2 = """
 In 1997 Wayne Gould, a judge of Hong Kong, developed a computer program that
 could easily develop new puzzles. He brought that to The Time Magazine in
 England that started publishing them, and quickly it spread through the rest
