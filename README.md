@@ -21,9 +21,9 @@ Although running the app on a terminal has certain limitations regarding the use
 * As a user, I want to be explained how to use the application.
 * As a user, I want to get information about the game Sudoku.
 * As a user, I want to be able to exit the application at any step.
-* As a user, I want to be able to correct the puzzle in case I made a miskate.
-* As a user, I want to be able to restart the whole puzzle if I made a lot of mistakes.
-* As a user, I want to be able to enter the sudoku using more than just one format.
+* As a user, I want to be able to correct the puzzle in case I make a mistake.
+* As a user, I want to be able to restart the whole puzzle if I make a lot of mistakes.
+* As a user, I want to be able to enter the sudoku values using more than just one format.
 * As a user, I want to have the numbers I enter easily differentiated from the others.
 * As a user, I want to get the solution to the Sudoku puzzle.
 
