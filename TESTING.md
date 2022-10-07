@@ -2,11 +2,17 @@
 Click to return back to the [README.md](README.md)
 
 ## Code Validation
-The code was validated using the pycodestyle validator directly in the Gitpod terminal. This does not throw any code errors.
+Since "pep8online" was not working at the time this application was created, two other validation methods were used to validate these files. First, the code was validated using the pycodestyle validator directly in the Gitpod terminal. This does not throw any code errors.
 <details>
 <summary>View Validator</summary>
 
-![bug 1-1](documentation/validator.png)
+![pycodestyle validator](documentation/pycodestyle-validator.png)
+</details>
+Also, the code was validated using the [extendclass.com](https://extendsclass.com/python-tester.html) validator. This also returns a free error in the code message.
+<details>
+<summary>View Validator</summary>
+
+![extendclass.com validator](documentation/extend-class-validator.png)
 </details>
 
 ## User Stories
