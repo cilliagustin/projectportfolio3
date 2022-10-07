@@ -95,6 +95,7 @@ def start_app():
     Gets the given values from the user and then solves the sudoku using the
     solve sudoku function.
     """
+    clear()
     run_app_screen()
     while True:
         answer = input(
