@@ -70,6 +70,8 @@ def information_menu():
             clear()
             print(INFORMATION_TEXT)
             print(GAME_TEXT)
+            input(f"Press {Fore.BLUE}Enter{Fore.WHITE} to continue")
+            print(GAME_TEXT_2)
         elif answer == "app":
             clear()
             print(INFORMATION_TEXT)
