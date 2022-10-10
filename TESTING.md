@@ -8,9 +8,12 @@ Since "pep8online" was not working at the time this application was created, two
 
 ![pycodestyle validator](documentation/pycodestyle-validator.png)
 </details>
+
 Also, the code was validated using the [extendclass.com](https://extendsclass.com/python-tester.html) validator. This also returns a free error in the code message.
 <details>
 <summary>View Validator</summary>
+
+
 
 ![extendclass.com validator](documentation/extend-class-validator.png)
 </details>
