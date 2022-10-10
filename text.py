@@ -132,7 +132,7 @@ APP_TEXT2 = (
     'starting all over\nagain.\n\n')
 
 START_APP_TEXT = (
-    'Write all your given numbers using one of the following paramethers: '
+    'Write all your given numbers using one of the following parameters: '
     f'{Fore.BLUE}2,9,4{Fore.WHITE},\n{Fore.BLUE}2-9-4{Fore.WHITE},{Fore.BLUE}'
     f' 2 9 4{Fore.WHITE} or {Fore.BLUE}294{Fore.WHITE}. Remember the first '
     f'number represents the {Fore.BLUE} row {Fore.WHITE}, the second the '
